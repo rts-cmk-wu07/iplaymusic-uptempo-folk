@@ -1,0 +1,24 @@
+-search
+Navigation
+Player component(state)
+
+View: Featured
+-Trending artist (map)
+
+View: Albums
+    - featured albums (map)
+    - new releases
+
+View: Album details
+- header (swiper/hero)
+-list: play btn, title, highligt
+
+
+
+View: categories
+-category
+-subcategories
+-category details
+
+-view: Artist
+
