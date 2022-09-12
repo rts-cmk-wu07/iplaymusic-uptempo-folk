@@ -1,24 +1,26 @@
-import { Link, Navlink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { IoAlbumsSharp } from "react-icons/io";
 
 const Nav = () => {
   return (
-    <nav>
-      IplayMusic
-      <ul>
+    <nav className="flex justify-end">
+      <ul className="flex m-auto justify-between">
         <li>
-          <Navlink>Albums</Navlink>
+          <NavLink to="/albums">
+            <IoAlbumsSharp />
+          </NavLink>
         </li>
         <li>
-          <Navlink>Playlists</Navlink>
+          <NavLink to="/playlists">Playlists</NavLink>
         </li>
         <li>
-          <Navlink>Featured</Navlink>
+          <NavLink to="/">Featured</NavLink>
         </li>
         <li>
-          <Navlink>Color themes</Navlink>
+          <button>Color themes</button>
         </li>
         <li>
-          <Navlink>Categories</Navlink>
+          <NavLink to="/categories">Categories</NavLink>
         </li>
       </ul>
     </nav>
