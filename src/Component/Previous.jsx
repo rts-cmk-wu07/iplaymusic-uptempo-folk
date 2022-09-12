@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { UseNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Previous = () => {
-  const navigate = UseNavigate();
+  const navigate = useNavigate();
   const [hasPrevious, setHasPrevious] = useState(false);
 
   function PreviousPage() {
