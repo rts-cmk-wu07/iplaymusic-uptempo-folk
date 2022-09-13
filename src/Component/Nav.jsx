@@ -6,7 +6,7 @@ import { VscColorMode } from "react-icons/vsc";
 import { BiCategory } from "react-icons/bi";
 
 const clickHandler = (event) => {
-  document.body.classList.toggle('dark');
+  document.body.classList.toggle("dark");
 };
 const Nav = () => {
   return (
@@ -19,12 +19,14 @@ const Nav = () => {
         </li>
         <li>
           <NavLink to="/playlists">
-            <RiPlayListFill size={35} />
+            <RiPlayListFill className="mt-2" size={35} />
           </NavLink>
         </li>
         <li>
           <NavLink to="/">
-            <MdOutlineWifiTethering size={35} />
+            <div className="justify-center flex rounded-full w-12 h-12 bg-gradient-to-r from-pink-500 to-yellow-500">
+              <MdOutlineWifiTethering className="flex m-auto" size={35} />
+            </div>
           </NavLink>
         </li>
         <li>
