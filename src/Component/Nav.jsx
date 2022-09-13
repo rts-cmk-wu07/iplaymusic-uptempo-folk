@@ -1,10 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoAlbumsSharp } from "react-icons/io5";
 import { RiPlayListFill } from "react-icons/ri";
 import { MdOutlineWifiTethering } from "react-icons/md";
 import { VscColorMode } from "react-icons/vsc";
 import { BiCategory } from "react-icons/bi";
 
+const clickHandler = (event) => {
+  document.body.classList.toggle('dark');
+};
 const Nav = () => {
   return (
     <nav className="flex justify-end">
@@ -25,7 +28,7 @@ const Nav = () => {
           </NavLink>
         </li>
         <li>
-          <button>
+          <button onClick={clickHandler}>
             <VscColorMode size={35} />
           </button>
         </li>
