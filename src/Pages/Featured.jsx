@@ -27,7 +27,7 @@ const Featured = () => {
    
     return ( 
         <div className="featured overflow-scroll">
-            <h1 className="font-bold text-lg">Recommended</h1>
+            <h1 className="font-bold text-lg dark:text-white">Recommended</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">
@@ -39,7 +39,7 @@ const Featured = () => {
 
             ))}
             </Slider>
-            <h1 className="font-bold text-lg mt-20">Best of artist</h1>
+            <h1 className="font-bold text-lg mt-20 dark:text-white">Best of artist</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">
@@ -51,7 +51,7 @@ const Featured = () => {
 
             ))}
             </Slider>
-            <h1 className="font-bold text-lg mt-20">New releases for you</h1>
+            <h1 className="font-bold text-lg mt-20 dark:text-white">New releases for you</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">
