@@ -26,22 +26,12 @@ const Albums = () => {
           }
         ]
       };
-      const settingsCenterMode = {
-        className: "center",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 3,
-        speed: 500
-      };
 
-
-   
     return ( 
         <div >
-            <div className="featured overflow-scroll">
+            <div className="featured">
             <h1 className="font-bold text-3xl mb-6 dark:text-white">Featured Albums</h1>
-            <Slider {...settings} className="cente">
+            <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">
                 <div className="card-top">
