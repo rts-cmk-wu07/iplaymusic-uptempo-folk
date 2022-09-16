@@ -24,7 +24,7 @@ function App() {
           <Route path="/genericArtistGenre" element={<GenericArtistGenre />} />
           <Route
             path="/genericPlaylistAlbum"
-            element={<GenericPlaylistAlbum />}
+            element={<GenericPlaylistAlbum  />}
           />
         </Route>
         *
