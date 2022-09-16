@@ -14,7 +14,7 @@ const Layout = () => {
       <main className="border-black-600 border-2 min-h-[87%] dark:bg-slate-800">
         <Outlet />
       </main>
-      <Player />
+      
 
       <Nav />
     </div>

@@ -10,15 +10,18 @@ import MinimizedAudioPlayer from "../Component/MinimizedAudioPlayer";
 
 const Player = () => {
   const [maximized, setMaximized] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const artistName = "Willie Nelson";
   const songTitle = "On the Road Again";
+
+  console.log("maximized", maximized);
 
   return (
     <>
       <>
         {!maximized && (
-          <div className="absolute right-2 bottom-20 w-full h-44 bg-yellow-400">
+          <div className="fixed right-2 bottom-20 w-screen h-44 bg-yellow-400">
             <div className="flex">
               <div className="flex" onClick={(event) => setMaximized(true)}>
                 <div className="w-2 h-2">
@@ -28,24 +31,29 @@ const Player = () => {
                   <p>{artistName}</p>
                   <p>{songTitle}</p>
                 </div>{" "}
+                <div>
+                  {!isPlaying && <button>Play</button>}
+                  {isPlaying && <button>Pause</button>}
+                </div>
               </div>
             </div>
-            <MinimizedAudioPlayer />
           </div>
         )}
-        {maximized && (
-          <div className="absolute right-0 top-0 bottom-0 w-screen bg-cyan-300">
-            <div className="flex">
-              <button onClick={(event) => setMaximized(false)}>
-                <IoChevronBack />
-              </button>
-              <h2>Playing</h2>
-            </div>
-            <div>
-              <MaximizedAudioPlayer audioFile={audioFile} />
-            </div>
+        <div
+          className={
+            maximized ? "fixed right-0 top-0 bottom-0 w-screen" : "hidden"
+          }
+        >
+          <div className="flex">
+            <button onClick={(event) => setMaximized(false)}>
+              <IoChevronBack />
+            </button>
+            <h2>Playing</h2>
           </div>
-        )}
+          <div>
+            <MaximizedAudioPlayer audioFile={audioFile} />
+          </div>
+        </div>
       </>
     </>
   );
