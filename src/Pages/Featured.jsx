@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import {useState} from "react";
 import FeaturedData from "../Component/Data";
 
 
@@ -27,7 +26,7 @@ const Featured = () => {
    
     return ( 
         <div className="featured overflow-scroll">
-            <h1 className="font-bold text-lg">Recommended</h1>
+            <h1 className="font-bold text-3xl mb-6 dark:text-white">Recommended</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">
@@ -39,7 +38,7 @@ const Featured = () => {
 
             ))}
             </Slider>
-            <h1 className="font-bold text-lg mt-20">Best of artist</h1>
+            <h1 className="font-bold text-3xl mb-6 mt-20 dark:text-white">Best of artists</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">
@@ -51,7 +50,7 @@ const Featured = () => {
 
             ))}
             </Slider>
-            <h1 className="font-bold text-lg mt-20">New releases for you</h1>
+            <h1 className="font-bold text-3xl mb-6 mt-20 dark:text-white">New releases for you</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">
