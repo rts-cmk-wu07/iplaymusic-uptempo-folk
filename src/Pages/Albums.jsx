@@ -30,6 +30,7 @@ const Albums = () => {
     return ( 
         <div >
             <div className="featured">
+              <h1 className=" font-bold text-[4rem] text-gradient-to-r from-pink-500 to-yellow-500 mb-8">All Albums</h1>
             <h1 className="font-bold text-3xl mb-6 dark:text-white">Featured Albums</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
