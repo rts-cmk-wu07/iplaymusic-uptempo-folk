@@ -15,6 +15,7 @@ import Login from "./Pages/Login";
 function App() {
   return (
     <div className="App">
+
       <>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -23,7 +24,6 @@ function App() {
             <Route path="/albums" element={<Albums />} />
             <Route path="/playlists" element={<Playlists />} />
             <Route path="/categories" element={<Categories />} />
-            <Route path="/player" element={<Player />} />
             <Route path="/login" element={<Login />} />
             <Route
               path="/genericArtistGenre"
@@ -38,6 +38,8 @@ function App() {
         </Routes>
         <Player/>
       </>
+
+
     </div>
   );
 }
