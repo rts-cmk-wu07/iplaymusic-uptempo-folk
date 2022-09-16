@@ -9,6 +9,7 @@ import Categories from "./Pages/Categories";
 import Player from "./Pages/Player";
 import GenericArtistGenre from "./Pages/GenericArtistGenre";
 import GenericPlaylistAlbum from "./Pages/GenericPlaylistAlbum";
+import Login from "./Pages/Login";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/playlists" element={<Playlists />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/player" element={<Player />} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/genericArtistGenre" element={<GenericArtistGenre />} />
           <Route
             path="/genericPlaylistAlbum"
