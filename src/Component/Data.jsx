@@ -23,7 +23,7 @@ const FeaturedData = [
     },
     {
       id: 4,
-      title: 'Super Mario™ 3D World + Bowser’s Fury', 
+      title: 'Super Mario™ 3D World', 
       category: 'Nintendo Switch',  
       linkImg:
         'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_auto/c_scale,w_300/v1/ncom/en_US/games/switch/s/super-mario-3d-world-plus-bowsers-fury-switch/hero?_a=AJADJWI0',
@@ -31,13 +31,14 @@ const FeaturedData = [
     {
       id: 5,
       title: 'Cuphead',
-
+      category: 'Nintendo Switch',
       linkImg:
         'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_auto/c_scale,w_300/v1/ncom/en_US/games/switch/c/cuphead-switch/hero?_a=AJADJWI0',
     },
     {
       id: 6,
       title: 'Minecraft',
+      category: 'Nintendo Switch',
       linkImg:
         'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_auto/c_scale,w_300/v1/ncom/en_US/games/switch/m/minecraft-switch/hero?_a=AJADJWI0',
     },
@@ -45,6 +46,7 @@ const FeaturedData = [
     {
       id: 7,
       title: 'Unravel Two',
+      category: 'Nintendo Switch',
       linkImg:
         'https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_auto/c_scale,w_300/v1/ncom/en_US/games/switch/u/unravel-two-switch/hero?_a=AJADJWI0',
     },

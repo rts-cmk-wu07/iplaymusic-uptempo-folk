@@ -35,3 +35,15 @@
   background: black;
 }
 
+.album{
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 70px;
+  
+
+}
+.albumImg{
+  border-radius: 8px;
+  width: 120px;
+}
