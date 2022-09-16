@@ -9,32 +9,32 @@ import Categories from "./Pages/Categories";
 import Player from "./Pages/Player";
 import GenericArtistGenre from "./Pages/GenericArtistGenre";
 import GenericPlaylistAlbum from "./Pages/GenericPlaylistAlbum";
-import { MaximizedContext } from "./Contexts/MaximizedContext";
+
+import Login from "./Pages/Login";
+
 
 function App() {
   return (
     <div className="App">
-      <MaximizedContext.Provider>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Featured />} />
-            <Route path="/albumDetails" element={<AlbumDetails />} />
-            <Route path="/albums" element={<Albums />} />
-            <Route path="/playlists" element={<Playlists />} />
-            <Route path="/categories" element={<Categories />} />
-            
-            <Route
-              path="/genericArtistGenre"
-              element={<GenericArtistGenre />}
-            />
-            <Route
-              path="/genericPlaylistAlbum"
-              element={<GenericPlaylistAlbum />}
-            />
-          </Route>
-          *
-        </Routes>
-      </MaximizedContext.Provider>
+
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Featured />} />
+          <Route path="/albumDetails" element={<AlbumDetails />} />
+          <Route path="/albums" element={<Albums />} />
+          <Route path="/playlists" element={<Playlists />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/player" element={<Player />} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/genericArtistGenre" element={<GenericArtistGenre />} />
+          <Route
+            path="/genericPlaylistAlbum"
+            element={<GenericPlaylistAlbum />}
+          />
+        </Route>
+        *
+      </Routes>
+
     </div>
   );
 }

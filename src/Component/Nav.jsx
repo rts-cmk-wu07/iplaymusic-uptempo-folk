@@ -19,7 +19,7 @@ const Nav = () => {
         </li>
         <li>
           <NavLink to="/playlists">
-            <RiPlayListFill className="mt-2" size={35} />
+            <RiPlayListFill size={35} />
           </NavLink>
         </li>
         <li>
