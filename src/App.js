@@ -9,11 +9,14 @@ import Categories from "./Pages/Categories";
 import Player from "./Pages/Player";
 import GenericArtistGenre from "./Pages/GenericArtistGenre";
 import GenericPlaylistAlbum from "./Pages/GenericPlaylistAlbum";
+
 import Login from "./Pages/Login";
+
 
 function App() {
   return (
     <div className="App">
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Featured />} />
@@ -31,6 +34,7 @@ function App() {
         </Route>
         *
       </Routes>
+
     </div>
   );
 }

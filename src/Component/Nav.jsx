@@ -14,7 +14,7 @@ const Nav = () => {
       <ul className="flex m-auto justify-between w-4/5 mt-4">
         <li>
           <NavLink to="/albums">
-            <IoAlbumsSharp size={35} />
+            <IoAlbumsSharp className="mt-2" size={35} />
           </NavLink>
         </li>
         <li>
@@ -31,12 +31,12 @@ const Nav = () => {
         </li>
         <li>
           <button onClick={clickHandler}>
-            <VscColorMode size={35} />
+            <VscColorMode className="mt-2" size={35} />
           </button>
         </li>
         <li>
           <NavLink to="/categories">
-            <BiCategory size={35} />
+            <BiCategory className="mt-2" size={35} />
           </NavLink>
         </li>
       </ul>
