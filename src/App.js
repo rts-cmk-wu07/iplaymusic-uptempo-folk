@@ -12,28 +12,33 @@ import GenericPlaylistAlbum from "./Pages/GenericPlaylistAlbum";
 
 import Login from "./Pages/Login";
 
-
 function App() {
   return (
     <div className="App">
 
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Featured />} />
-          <Route path="/albumDetails" element={<AlbumDetails />} />
-          <Route path="/albums" element={<Albums />} />
-          <Route path="/playlists" element={<Playlists />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/player" element={<Player />} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/genericArtistGenre" element={<GenericArtistGenre />} />
-          <Route
-            path="/genericPlaylistAlbum"
-            element={<GenericPlaylistAlbum  />}
-          />
-        </Route>
-        *
-      </Routes>
+      <>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Featured />} />
+            <Route path="/albumDetails" element={<AlbumDetails />} />
+            <Route path="/albums" element={<Albums />} />
+            <Route path="/playlists" element={<Playlists />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/genericArtistGenre"
+              element={<GenericArtistGenre />}
+            />
+            <Route
+              path="/genericPlaylistAlbum"
+              element={<GenericPlaylistAlbum />}
+            />
+          </Route>
+          *
+        </Routes>
+        <Player/>
+      </>
+
 
     </div>
   );
