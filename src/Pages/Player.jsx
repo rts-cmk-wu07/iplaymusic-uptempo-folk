@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import playerBg from "../assets/player-bgr.jpg";
 import playerFg from "../assets/player-fg.jpg";
-import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
+import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import audioFile from "../assets/penguin.mp3";
 import { IoChevronBack } from "react-icons/io5";
@@ -12,6 +12,22 @@ import { IoPause } from "react-icons/io5";
 const Player = () => {
   const [maximized, setMaximized] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  const player = useRef();
+
+  const pressPlay = () => {
+
+
+    player.current.audio.current.play();
+
+  };
+
+  const pressPause = () => {
+
+
+    player.current.audio.current.pause();
+
+  };
 
   const artistName = "Willie Nelson";
   const songTitle = "On the Road Again";
@@ -37,7 +53,7 @@ const Player = () => {
                 {!isPlaying && (
                   <button
                     className="pt-2"
-                    onClick={(event) => setIsPlaying(true)}
+                    onClick={(event) => {setIsPlaying(true); pressPlay()}}
                   >
                     <IoPlay size="25" />
                   </button>
@@ -45,7 +61,7 @@ const Player = () => {
                 {isPlaying && (
                   <button
                     className="pt-2"
-                    onClick={(event) => setIsPlaying(false)}
+                    onClick={(event) => {setIsPlaying(false); pressPause();}}
                   >
                     <IoPause size="25" />
                   </button>
@@ -70,9 +86,14 @@ const Player = () => {
             <img className="w-full h-full rounded-full" src={playerFg} alt="" />
           </div>
 
-          <div>
-            <MaximizedAudioPlayer audioFile={audioFile} />
-          </div>
+          <AudioPlayer
+            autoPlay
+            src={audioFile}
+            onPlay={(e) => console.log("onPlay")}
+            ref={player}
+
+            // other props here
+          />
         </div>
       </>
     </>
