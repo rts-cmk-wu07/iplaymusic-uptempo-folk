@@ -4,16 +4,29 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 .featured {
-  width: 90%;
+
   /* margin:auto 0; */
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
+img{
+  border-radius: 8px;
+ 
+}
+.featured-card{
+  
+
+}
+
+.featuredCard-top{
+  width: 100%;
+}
+
 
 .albums{
   width: 100%;
   margin-left:30px;
   margin-top: 30px;
-
+  overflow-x: hidden;
 }
 
 .slick-slide > div {
@@ -21,13 +34,13 @@ h1 {
 }
 .slick-list {
   margin: 0 -10px;
+  overflow-x: hidden;
 }
 
 .card {
   border: 1px solid #fff;
   border-radius: 8px;
   overflow: hidden;
-
   height: 150px;
   color: #fff;
   cursor: pointer;
@@ -35,7 +48,7 @@ h1 {
 
 .card-top h1 {
   font-size: 0.9rem;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .card-top > img {
