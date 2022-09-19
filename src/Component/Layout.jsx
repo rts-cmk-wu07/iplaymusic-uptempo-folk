@@ -11,7 +11,7 @@ const Layout = () => {
         <Previous />
         <Search />
       </div>
-      <main className="border-black-600 border-2 h-[88%] overflow-scroll dark:bg-slate-800">
+      <main className="border-black-600 border-2 h-[88%] overflow-scroll dark:bg-secondaryColor ">
         <Outlet />
       </main>
       
