@@ -15,7 +15,6 @@ import Login from "./Pages/Login";
 function App() {
   return (
     <div className="App">
-
       <>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -36,10 +35,7 @@ function App() {
           </Route>
           *
         </Routes>
-        <Player/>
       </>
-
-
     </div>
   );
 }
