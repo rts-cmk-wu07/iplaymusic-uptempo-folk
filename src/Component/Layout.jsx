@@ -6,7 +6,7 @@ import Player from "../Pages/Player";
 
 const Layout = () => {
   return (
-    <div className="h-screen overflow-y-hidden">
+    <div className="h-screen overflow-hidden">
       <div className="h-[5%]">
         <Previous />
         <Search />

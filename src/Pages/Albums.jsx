@@ -53,10 +53,10 @@ const Albums = () => {
             </div>
 
             <div className="flex">
-              <h2 className="font-bold ml-8 mt-20 text-[20px] dark:text-white ">New Releases</h2>
-              <h3 className="ml-32 mt-20 text-[20px] dark:text-white text-[#ff1168]">View All</h3>
+              <h2 className="font-extrabold ml-8 mt-20 text-[20px] dark:text-white ">New Releases</h2>
+              <h3 className="ml-32 mt-20 text-[20px]  text-[#ff1168]">View All</h3>
             </div>
-            <div className="flex overflow-scroll h-[28rem]">
+            <div className="flex overflow-y-scroll overflow-x-hidden h-[28rem]">
               
             <div >
             

@@ -6,19 +6,20 @@ import FeaturedData from "../Component/Data";
 
 const Featured = () => {
     const settings = {
-        dots: true,
+        vertical: true,
+        verticalSwiping: true,
         infinite: false,
-        speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        speed: 800,
+        slidesToShow: 1.5,
+        slidesToScroll: 1.5,
         initialSlide: 0,
         responsive: [
       
           {
             breakpoint: 390,
             settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2
+              slidesToShow: 1.5,
+              slidesToScroll: 1.5
             }
           }
         ]
@@ -26,42 +27,20 @@ const Featured = () => {
    
     return ( 
         <div className="featured overflow-scroll overflow-x-hidden">
-            <h1 className="font-bold text-2xl mb-6 dark:text-white">Recommended</h1>
+            <h1 className="font-extrabold text-[48px] mb-6 ml-8">Featured</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
-            <div className="card">
-                <div className="card-top">
-                    <img src={item.linkImg} alt="" />
-                    <h2>{item.title}</h2>
+            <div className="featured-card m-auto">
+                <div className="featuredCard-top">
+                    <img src={item.linkImg} alt="" className="w-[500px]"/>
+                    <h2 className="featuredText">{item.title}</h2>
                 </div>
             </div>
 
             ))}
             </Slider>
-            <h1 className="font-bold text-2xl mb-6 mt-5 dark:text-white">Best of artists</h1>
-            <Slider {...settings}>
-            {FeaturedData.map((item) =>(
-            <div className="card">
-                <div className="card-top">
-                    <img src={item.linkImg} alt="" />
-                    <h2>{item.title}</h2>
-                </div>
-            </div>
-
-            ))}
-            </Slider>
-            <h1 className="font-bold text-2xl mb-6 mt-10 dark:text-white">New releases for you</h1>
-            <Slider {...settings}>
-            {FeaturedData.map((item) =>(
-            <div className="card">
-                <div className="card-top">
-                    <img src={item.linkImg} alt="" />
-                    <h2>{item.title}</h2>
-                </div>
-            </div>
-
-            ))}
-            </Slider>
+            
+           
         </div>
         
        )
