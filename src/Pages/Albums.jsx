@@ -1,5 +1,4 @@
 import Slider from "react-slick";
-import CenterMode from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { NavLink } from "react-router-dom";
@@ -45,8 +44,8 @@ const Albums = () => {
             </div>
 
             <div className="flex">
-              <h1 className="font-bold ml-10 mt-40 mb-10 text-xl dark:text-white ">New Releases</h1>
-              <h2 className="font-bold ml-40 mt-40 mb-10 text-l dark:text-white">View All</h2>
+              <h1 className="font-bold ml-10 mt-20 mb-10 text-xl dark:text-white ">New Releases</h1>
+              <h2 className="font-bold ml-32 mt-20 mb-10 text-l dark:text-white">View All</h2>
             </div>
             <div className="flex overflow-scroll h-[32rem]">
               

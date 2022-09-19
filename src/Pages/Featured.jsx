@@ -38,7 +38,7 @@ const Featured = () => {
 
             ))}
             </Slider>
-            <h1 className="font-bold text-2xl mb-6 mt-10 dark:text-white">Best of artists</h1>
+            <h1 className="font-bold text-2xl mb-6 mt-5 dark:text-white">Best of artists</h1>
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">
