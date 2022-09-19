@@ -24,7 +24,7 @@ const Nav = () => {
         </li>
         <li>
           <NavLink to="/">
-            <div className="justify-center flex rounded-full w-12 h-12 bg-gradient-to-r from-pink-500 to-yellow-500">
+            <div className="justify-center flex rounded-full w-12 h-12 bg-gradient-to-r from-[#EE0979] to-[#FF6A00]">
               <MdOutlineWifiTethering className="flex m-auto" size={35} />
             </div>
           </NavLink>
