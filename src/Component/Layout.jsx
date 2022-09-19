@@ -6,17 +6,17 @@ import Player from "../Pages/Player";
 
 const Layout = () => {
   return (
-    <div className="h-screen">
-      <div>
+    <div className="h-screen overflow-y-hidden">
+      <div className="h-[5%]">
         <Previous />
         <Search />
       </div>
-      <main className="border-black-600 border-2 min-h-[87%] dark:bg-slate-800">
+      <main className="border-black-600 border-2 h-[88%] overflow-scroll dark:bg-slate-800">
         <Outlet />
       </main>
       
 
-      <Nav />
+      <Nav className="h-[6%]" />
     </div>
   );
 };

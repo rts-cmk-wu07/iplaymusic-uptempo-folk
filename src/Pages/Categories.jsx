@@ -7,14 +7,14 @@ const Categories = () => {
             <div className="pt-5">
                 {CategoriesData.map((item) => (
                     <div className="pb-3">
-                        <div className="bg-pink-600 border-black border">
-                            <button className="ml-2 text-white font-bold">{item.CategoryName}</button>
+                        <div className="bg-pink-600 border-black border dark:bg-fuchsia-800">
+                            <button className="ml-2 text-white font-bold dark:text-black">{item.CategoryName}</button>
                             <button className=" align-middle ml-60">
                                 <IoIosMore color="white" size={40} />
                             </button>
                         </div>
-                        <div>
-                            {item.SubcategoryName}
+                        <div className="text-black dark:text-white">
+                            <a>{item.SubcategoryName}</a>
                         </div>
                     </div>
                 ))}
