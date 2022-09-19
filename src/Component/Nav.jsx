@@ -11,7 +11,7 @@ const clickHandler = (event) => {
 const Nav = () => {
   return (
     <nav className="flex justify-end">
-      <ul className="flex m-auto justify-between w-4/5 mt-4">
+      <ul className="flex m-auto justify-between w-4/5 mt-2">
         <li>
           <NavLink to="/albums">
             <IoAlbumsSharp className="mt-2" size={35} />
