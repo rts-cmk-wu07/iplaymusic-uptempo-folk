@@ -3,6 +3,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { NavLink } from "react-router-dom";
 import FeaturedData from "../Component/Data";
+import { IoMdSettings } from 'react-icons/io'
+import {Link } from "react-router-dom";
+import { MdArrowBackIos } from 'react-icons/md'
 
 
 
@@ -28,8 +31,9 @@ const Albums = () => {
 
     return ( 
         <div >
-            <div className="featured">
-            <h1 className="font-bold text-2xl mb-6 dark:text-white">Featured Albums</h1>
+            <div className="albums">
+            <h1 className="font-bold text-2xl mb-6 dark:text-white">All Albums</h1>
+           
             <Slider {...settings}>
             {FeaturedData.map((item) =>(
             <div className="card">

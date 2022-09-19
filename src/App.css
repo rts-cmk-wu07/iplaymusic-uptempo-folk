@@ -5,6 +5,13 @@
   margin-top: 30px;
 }
 
+.albums{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+
+}
+
 .slick-slide > div {
   margin: 0 10px;
 }
