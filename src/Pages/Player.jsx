@@ -2,7 +2,8 @@ import { useState, useRef } from "react";
 import playerBg from "../assets/player-bgr.jpg";
 import playerFg from "../assets/player-fg.jpg";
 import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
+
+import "../playerStyle.css";
 import audioFile from "../assets/penguin.mp3";
 import { IoChevronBack } from "react-icons/io5";
 import MaximizedAudioPlayer from "../Component/MaximizedAudioPlayer";
@@ -108,6 +109,12 @@ const Player = () => {
             }}
             ref={player}
             showSkipControls={true}
+            customVolumeControls={[]}
+            customAdditionalControls={[]}
+            customIcons={{
+              play: <IoPlay size={50} />,
+              pause: <IoPause size={50} />,
+            }}
 
             // other props here
           />
