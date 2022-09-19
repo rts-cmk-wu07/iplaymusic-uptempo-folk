@@ -16,17 +16,11 @@ const Player = () => {
   const player = useRef();
 
   const pressPlay = () => {
-
-
     player.current.audio.current.play();
-
   };
 
   const pressPause = () => {
-
-
     player.current.audio.current.pause();
-
   };
 
   const artistName = "Willie Nelson";
@@ -38,8 +32,8 @@ const Player = () => {
     <>
       <>
         {!maximized && (
-          <div className="fixed right-2 bottom-20 w-screen h-14 bg-white dark:bg-pink-900">
-            <div className="flex justify-around">
+          <div className="fixed right-0 left-0 bottom-[7%] w-full h-14 bg-white dark:bg-pink-900">
+            <div className="flex justify-around pt-1 pb-1">
               <div className="flex" onClick={(event) => setMaximized(true)}>
                 <div className="w-12 h-12">
                   <img className="left-5 w-12 h-12" src={playerFg} alt="" />
@@ -53,7 +47,10 @@ const Player = () => {
                 {!isPlaying && (
                   <button
                     className="pt-2"
-                    onClick={(event) => {setIsPlaying(true); pressPlay()}}
+                    onClick={(event) => {
+                      setIsPlaying(true);
+                      pressPlay();
+                    }}
                   >
                     <IoPlay size="25" />
                   </button>
@@ -61,7 +58,10 @@ const Player = () => {
                 {isPlaying && (
                   <button
                     className="pt-2"
-                    onClick={(event) => {setIsPlaying(false); pressPause();}}
+                    onClick={(event) => {
+                      setIsPlaying(false);
+                      pressPause();
+                    }}
                   >
                     <IoPause size="25" />
                   </button>
@@ -72,10 +72,12 @@ const Player = () => {
         )}
         <div
           className={
-            maximized ? "fixed right-0 top-0 bottom-0 w-screen" : "hidden"
+            maximized
+              ? "fixed right-0 top-0 bottom-0 w-screen h-screen"
+              : "hidden"
           }
         >
-          <img src={playerBg} alt="" className="w-full min-h-[87%] relative" />
+          <img src={playerBg} alt="" className="w-full h-5/6 relative" />
           <div className="flex absolute left-2 top-5">
             <button onClick={(event) => setMaximized(false)}>
               <IoChevronBack color="white" size="30" />
@@ -90,7 +92,13 @@ const Player = () => {
             autoPlay
             src={audioFile}
             onPlay={(e) => console.log("onPlay")}
+            style={{
+              backgroundColor: "transparent",
+              position: "absolute",
+              zIndex: "revert",
+            }}
             ref={player}
+            showSkipControls={true}
 
             // other props here
           />
