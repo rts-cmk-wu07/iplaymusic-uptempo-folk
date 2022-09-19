@@ -32,7 +32,7 @@ const Featured = () => {
             {FeaturedData.map((item) =>(
             <div className="featured-card m-auto">
                 <div className="featuredCard-top">
-                    <img src={item.linkImg} alt="" className="w-[500px]"/>
+                    <img src={item.linkImg} alt="" className="w-[500px] rounded-md"/>
                     <h2 className="featuredText">{item.title}</h2>
                 </div>
             </div>
