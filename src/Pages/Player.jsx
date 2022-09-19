@@ -39,8 +39,8 @@ const Player = () => {
                   <img className="left-5 w-12 h-12" src={playerFg} alt="" />
                 </div>
                 <div className="px-3">
-                  <p className="font-semibold">{songTitle}</p>
-                  <p>{artistName}</p>
+                  <p className="font-semibold dark:text-white">{songTitle}</p>
+                  <p className="dark:text-white">{artistName}</p>
                 </div>{" "}
               </div>{" "}
               <div>
@@ -52,7 +52,7 @@ const Player = () => {
                       pressPlay();
                     }}
                   >
-                    <IoPlay size="25" />
+                    <IoPlay className="dark:text-white" size="25" />
                   </button>
                 )}
                 {isPlaying && (
@@ -63,7 +63,7 @@ const Player = () => {
                       pressPause();
                     }}
                   >
-                    <IoPause size="25" />
+                    <IoPause className="dark:text-white" size="25" />
                   </button>
                 )}
               </div>
@@ -82,10 +82,19 @@ const Player = () => {
             <button onClick={(event) => setMaximized(false)}>
               <IoChevronBack color="white" size="30" />
             </button>
-            <h2 className="text-white text-xl px-32">PLAYING</h2>
+            {isPlaying ? (
+              <h2 className="text-white text-xl px-32">Playing</h2>
+            ) : (
+              <h2 className="text-white text-xl px-32">Paused</h2>
+            )}
           </div>
-          <div className="absolute align-middle rounded-full w-72 h-72 left-16 top-40">
+          <div className="absolute align-middle rounded-full w-60 h-60 left-20 top-40">
             <img className="w-full h-full rounded-full" src={playerFg} alt="" />
+          </div>
+          <div className="absolute text-white justify-self-center left-24 top-3/4 text-center">
+            {" "}
+            <p className="text-xl font-semibold">{songTitle}</p>
+            <p className="text-xl font-medium">{artistName}</p>
           </div>
 
           <AudioPlayer
@@ -94,7 +103,7 @@ const Player = () => {
             onPlay={(e) => console.log("onPlay")}
             style={{
               backgroundColor: "transparent",
-              position: "absolute",
+              position: "fixed",
               zIndex: "revert",
             }}
             ref={player}
