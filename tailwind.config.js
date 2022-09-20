@@ -4,7 +4,8 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     boxShadow: {
-      doubleShadow: "10px 10px 10px 10px #0000FF , 0 0 20px 30px #008000",
+      doubleShadow:
+        "0 0 0 25px hsla(338, 100%, 60%, 0.501) , 0 0 0 50px hsla(338, 100%, 40%, 0.501)",
     },
 
     extend: {

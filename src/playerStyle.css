@@ -1,27 +1,22 @@
-$rhap_theme-color: #771414 !default;
-$rhap_background-color: rgb(210, 123, 223) !default;
-$rhap_bar-color: #046e34 !default;
-$rhap_time-color: rgb(10, 56, 40) !default;
-$rhap_font-family: inherit !default;
-
 .rhap_container {
+  display: none;
+  background: transparent;
+  position: fixed;
+  z-index: auto;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   line-height: 1;
-  font-family: $rhap_font-family;
+  font-family: inherit;
   width: 100%;
   padding: 10px 15px;
-  background-color: $rhap_background-color;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
-
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
-
-  svg {
-    vertical-align: initial; // overwrite Bootstrap default
-  }
+}
+.rhap_container:focus:not(:focus-visible) {
+  outline: 0;
+}
+.rhap_container svg {
+  vertical-align: initial;
 }
 
 .rhap_header {
@@ -38,43 +33,44 @@ $rhap_font-family: inherit !default;
   flex: 1 1 auto;
 }
 
-.rhap_stacked {
-  .rhap_controls-section {
-    margin-top: 8px;
-  }
+.rhap_stacked .rhap_controls-section {
+  margin-top: 8px;
 }
 
 .rhap_horizontal {
   flex-direction: row;
-
-  .rhap_controls-section {
-    margin-left: 8px;
-  }
+}
+.rhap_horizontal .rhap_controls-section {
+  margin-left: 8px;
 }
 
 .rhap_horizontal-reverse {
   flex-direction: row-reverse;
-
-  .rhap_controls-section {
-    margin-right: 8px;
-  }
+}
+.rhap_horizontal-reverse .rhap_controls-section {
+  margin-right: 8px;
 }
 
 .rhap_stacked-reverse {
   flex-direction: column-reverse;
-
-  .rhap_controls-section {
-    margin-bottom: 8px;
-  }
+}
+.rhap_stacked-reverse .rhap_controls-section {
+  margin-bottom: 8px;
 }
 
 .rhap_progress-section {
   display: flex;
   flex: 3 1 auto;
   align-items: center;
+  position: fixed;
+  bottom: 10.5em;
 }
 
 .rhap_progress-container {
+  position: fixed;
+  bottom: 7em;
+  order: 1;
+  width: 85%;
   display: flex;
   align-items: center;
   height: 20px;
@@ -84,26 +80,36 @@ $rhap_font-family: inherit !default;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
+}
+.rhap_progress-container:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 .rhap_time {
-  color: $rhap_time-color;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   user-select: none;
   -webkit-user-select: none;
 }
 
+.rhap_current-time {
+  position: fixed;
+  left: 2em;
+}
+
+.rhap_total-time {
+  position: fixed;
+  right: 2em;
+}
+
 .rhap_progress-bar {
   box-sizing: border-box;
   position: relative;
+  bottom: 5em;
   z-index: 0;
   width: 100%;
   height: 5px;
-  background-color: $rhap_bar-color;
+  background-color: #ffffff;
   border-radius: 2px;
 }
 
@@ -111,19 +117,20 @@ $rhap_font-family: inherit !default;
   height: 100%;
   position: absolute;
   z-index: 2;
-  background-color: $rhap_theme-color;
+  background-color: #ff1168;
+  border-bottom: 3px solid #f18d05;
   border-radius: 2px;
 }
 
 .rhap_progress-bar-show-download {
-  background-color: rgba($rhap_bar-color, 0.5);
+  background-color: #ff1168;
 }
 
 .rhap_download-progress {
   height: 100%;
   position: absolute;
   z-index: 1;
-  background-color: $rhap_bar-color;
+  background-color: #ff116857;
   border-radius: 2px;
 }
 
@@ -131,16 +138,19 @@ $rhap_font-family: inherit !default;
   box-sizing: border-box;
   position: absolute;
   z-index: 3;
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-left: -10px;
-  top: -8px;
-  background: $rhap_theme-color;
+  top: -6px;
+  background: #ff1168;
   border-radius: 50px;
-  box-shadow: rgba($rhap_theme-color, 0.5) 0 0 5px;
+  box-shadow: #ff116886 0 0 0 6px;
 }
 
 .rhap_controls-section {
+  width: 95%;
+  position: absolute;
+  bottom: 6.5em;
   display: flex;
   flex: 1 1 auto;
   justify-content: space-between;
@@ -157,29 +167,49 @@ $rhap_font-family: inherit !default;
   font-size: 26px;
   width: 26px;
   height: 26px;
-  color: $rhap_theme-color;
+  color: #868686;
   margin-right: 6px;
 }
 
 .rhap_main-controls {
+  height: 50px;
+  width: 80%;
   flex: 0 1 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
 .rhap_main-controls-button {
   margin: 0 3px;
-  color: $rhap_theme-color;
+
   font-size: 35px;
   width: 35px;
   height: 35px;
 }
 
+.rhap_skip-button {
+  color: white;
+}
+
+.rhap_rewind-button {
+  color: white;
+}
+
+.rhap_forward-button {
+  color: white;
+}
+
 .rhap_play-pause-button {
-  font-size: 40px;
-  width: 40px;
-  height: 40px;
+  font-size: 90px;
+  width: 90px;
+  height: 90px;
+
+  color: #ff1168;
+
+  /*
+  fill: linear-gradient(to right, #ff1168, yellow);
+  stroke: linear-gradient(to right, #ff1168, yellow);*/
 }
 
 .rhap_volume-controls {
@@ -194,7 +224,7 @@ $rhap_font-family: inherit !default;
   font-size: 26px;
   width: 26px;
   height: 26px;
-  color: $rhap_theme-color;
+  color: #868686;
   margin-right: 6px;
 }
 
@@ -212,10 +242,9 @@ $rhap_font-family: inherit !default;
   width: 100%;
   height: 14px;
   cursor: pointer;
-
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
+}
+.rhap_volume-bar-area:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 .rhap_volume-bar {
@@ -223,7 +252,7 @@ $rhap_font-family: inherit !default;
   position: relative;
   width: 100%;
   height: 4px;
-  background: $rhap_bar-color;
+  background: #dddddd;
   border-radius: 2px;
 }
 
@@ -235,22 +264,21 @@ $rhap_font-family: inherit !default;
   margin-left: -6px;
   left: 0;
   top: -4px;
-  background: $rhap_theme-color;
+  background: #868686;
   opacity: 0.9;
   border-radius: 50px;
-  box-shadow: rgba($rhap_theme-color, 0.5) 0 0 3px;
+  box-shadow: rgba(134, 134, 134, 0.5) 0 0 3px;
   cursor: pointer;
-
-  &:hover {
-    opacity: 0.9;
-  }
+}
+.rhap_volume-indicator:hover {
+  opacity: 0.9;
 }
 
 .rhap_volume-filled {
   height: 100%;
   position: absolute;
   z-index: 2;
-  background-color: $rhap_theme-color;
+  background-color: #868686;
   border-radius: 2px;
 }
 
@@ -261,17 +289,14 @@ $rhap_font-family: inherit !default;
   padding: 0;
   overflow: hidden;
   cursor: pointer;
-
-  &:hover {
-    opacity: 0.9;
-    transition-duration: 0.2s;
-  }
-
-  &:active {
-    opacity: 0.95;
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: 0;
-  }
+}
+.rhap_button-clear:hover {
+  opacity: 0.9;
+  transition-duration: 0.2s;
+}
+.rhap_button-clear:active {
+  opacity: 0.95;
+}
+.rhap_button-clear:focus:not(:focus-visible) {
+  outline: 0;
 }

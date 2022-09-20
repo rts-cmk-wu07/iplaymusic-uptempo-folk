@@ -2,12 +2,14 @@ import { useState, useRef } from "react";
 import playerBg from "../assets/player-bgr.jpg";
 import playerFg from "../assets/player-fg.jpg";
 import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
+
+import "../playerStyle.css";
 import audioFile from "../assets/penguin.mp3";
 import { IoChevronBack } from "react-icons/io5";
-import MaximizedAudioPlayer from "../Component/MaximizedAudioPlayer";
 import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
+import { IoPlaySharp } from "react-icons/io5";
+import { IoPauseSharp } from "react-icons/io5";
 
 const Player = () => {
   const [maximized, setMaximized] = useState(true);
@@ -36,7 +38,11 @@ const Player = () => {
             <div className="flex justify-around pt-1 pb-1">
               <div className="flex" onClick={(event) => setMaximized(true)}>
                 <div className="w-12 h-12">
-                  <img className="left-5 w-12 h-12" src={playerFg} alt="" />
+                  <img
+                    className="left-5 w-12 h-12 object-cover"
+                    src={playerFg}
+                    alt=""
+                  />
                 </div>
                 <div className="px-3">
                   <p className="font-semibold dark:text-white">{songTitle}</p>
@@ -77,37 +83,56 @@ const Player = () => {
               : "hidden"
           }
         >
-          <img src={playerBg} alt="" className="w-full h-5/6 relative" />
+          <img
+            src={playerBg}
+            alt=""
+            className="w-full h-screen relative object-cover grayscale-0"
+          />
           <div className="flex absolute left-2 top-5">
             <button onClick={(event) => setMaximized(false)}>
               <IoChevronBack color="white" size="30" />
             </button>
             {isPlaying ? (
-              <h2 className="text-white text-xl px-32">Playing</h2>
+              <h2 className="text-white text-xl px-32 tracking-wider">
+                PLAYING
+              </h2>
             ) : (
-              <h2 className="text-white text-xl px-32">Paused</h2>
+              <h2 className="text-white text-xl px-32 tracking-wider">
+                PAUSED
+              </h2>
             )}
           </div>
-          <div className="absolute align-middle rounded-full w-60 h-60 left-20 top-40">
-            <img className="w-full h-full rounded-full" src={playerFg} alt="" />
+          <div className="absolute align-middle rounded-full w-60 h-60 left-20 top-40 shadow-doubleShadow">
+            <img
+              className="w-full h-full rounded-full object-cover"
+              src={playerFg}
+              alt=""
+            />
           </div>
-          <div className="absolute text-white justify-self-center left-24 top-3/4 text-center">
+          <div className="absolute text-white justify-self-center left-24 top-[60%] text-center">
             {" "}
-            <p className="text-xl font-semibold">{songTitle}</p>
-            <p className="text-xl font-medium">{artistName}</p>
+            <p className="text-xl font-bold">{songTitle}</p>
+            <p className="text-l font-medium">{artistName}</p>
           </div>
 
           <AudioPlayer
             autoPlay
+            className="absolute"
             src={audioFile}
             onPlay={(e) => console.log("onPlay")}
-            style={{
-              backgroundColor: "transparent",
-              position: "fixed",
-              zIndex: "revert",
-            }}
             ref={player}
             showSkipControls={true}
+            customVolumeControls={[]}
+            customAdditionalControls={[]}
+            customIcons={{
+              play: (
+                <IoPlaySharp
+                  /*color="bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500"*/
+                  size={90}
+                />
+              ),
+              pause: <IoPauseSharp size={90} />,
+            }}
 
             // other props here
           />
