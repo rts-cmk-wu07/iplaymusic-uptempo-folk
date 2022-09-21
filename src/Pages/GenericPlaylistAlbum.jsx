@@ -90,7 +90,7 @@ const GenericPlaylistAlbum = () => {
                 </p>
               </td>
               <td>
-                <p className="ml-20 font-medium dark:text-white text-base">
+                <p className="mr-3 pl-20 font-medium dark:text-white text-base">
                   {item.length}
                 </p>
               </td>
