@@ -208,8 +208,8 @@
   color: #ff1168;
 
   /*
-  fill: linear-gradient(to right, #ff1168, yellow);
-  stroke: linear-gradient(to right, #ff1168, yellow);*/
+  fill: linear-gradient(to right, #ff1168, #f2bc06);
+  stroke: linear-gradient(to right, #ff1168, #f2bc06);*/
 }
 
 .rhap_volume-controls {
