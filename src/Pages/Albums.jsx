@@ -9,17 +9,17 @@ import { MdArrowBackIos } from "react-icons/md";
 
 const Albums = () => {
   const settings = {
-    infinite: false,
+    infinite: true,
     speed: 800,
     slidesToShow: 2.5,
-    slidesToScroll: 2.5,
+    slidesToScroll: 2,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 390,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2.5,
+          slidesToScroll: 2,
         },
       },
     ],
@@ -27,13 +27,13 @@ const Albums = () => {
 
   return (
     <div>
-      <div>
-        <h1 className="text-[48px] ml-10 pb-8 font-extrabold ">All Albums</h1>
-        <div className="flex justify-between ">
-          <h3 className=" text-[20px] ml-8 font-bold dark:text-white">
+      <div className="h-1/3">
+        <h1 className="text-[48px] pl-10 pb-3 font-extrabold ">All Albums</h1>
+        <div className="flex justify-between w-4/5 m-auto">
+          <h3 className=" text-[20px] font-bold dark:text-white">
             Featured Albums
           </h3>
-          <h5 className="text-[20px] mr-5 text-[#ff1168] ">View All</h5>
+          <h5 className="text-[20px]  text-[#ff1168] ">View All</h5>
         </div>
 
         <Slider {...settings} className="albums ">
@@ -48,25 +48,25 @@ const Albums = () => {
         </Slider>
       </div>
 
-      <div className="flex">
-        <h2 className="font-extrabold ml-8 mt-20 text-[20px] dark:text-white ">
+      <div className="flex justify-between w-4/5 m-auto h-2/3">
+        <h2 className="font-extrabold pt-10 text-[20px] dark:text-white ">
           New Releases
         </h2>
-        <h3 className="ml-32 mt-20 text-[20px]  text-[#ff1168]">View All</h3>
+        <h3 className=" pt-10 text-[20px]  text-[#ff1168]">View All</h3>
       </div>
-      <div className="flex overflow-y-scroll overflow-x-hidden h-[28rem]">
+      <div className="flex overflow-y-scroll h-[28rem]">
         <div>
           {FeaturedData.map((item) => (
             <div className="album">
               <img src={item.linkImg} alt="" className="albumImg" />
-              <div className="mt-10 ml-3">
+              <div className="pt-10 pl-3">
                 <h2 className="font-bold dark:text-white">{item.title}</h2>
                 <p className="dark:text-white">{item.category}</p>
               </div>
             </div>
           ))}
         </div>
-        <div className="font-bold dark:text-white mt-8 ml-3">12 songs</div>
+        <div className="font-bold dark:text-white pt-8 pl-2">12 songs</div>
       </div>
     </div>
   );
