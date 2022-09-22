@@ -50,7 +50,7 @@ const GenericPlaylistAlbum = () => {
       </section>
 
       <section>
-        <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold ">
+        <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
           {FeaturedData[0].title}
         </h3>
 
