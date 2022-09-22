@@ -6,6 +6,7 @@ module.exports = {
     boxShadow: {
       doubleShadow:
         "0 0 0 25px hsla(338, 100%, 60%, 0.501) , 0 0 0 50px hsla(338, 100%, 40%, 0.501)",
+      InnerShadowImg: "inset 50px 0 50px 50px hsla(338, 100%, 40%, 0.501)",
     },
 
     extend: {

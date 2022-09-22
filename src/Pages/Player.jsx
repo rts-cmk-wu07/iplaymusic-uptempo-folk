@@ -41,7 +41,7 @@ const Player = () => {
                   <img
                     className="left-5 w-12 h-12 object-cover rounded-full shadow-[0_0_0_2px_hsla(338,100,60,0.501)]"
                     src={playerFg}
-                    alt=""
+                    alt={artistName}
                   />
                 </div>
                 <div className="px-3">
