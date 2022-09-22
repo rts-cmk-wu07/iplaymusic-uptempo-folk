@@ -3,6 +3,7 @@ const FeaturedData = [
     id: 1,
     title: "Mario8 Deluxe",
     category: "Nintendo Switch",
+    artist: "Richard Nixon",
     tracks: [
       {
         id: 1,
@@ -42,6 +43,7 @@ const FeaturedData = [
     id: 2,
     title: " STRATEGY™",
     category: "Nintendo Switch",
+    artist: "Dronning Daisy",
     tracks: [
       {
         id: 1,
@@ -75,29 +77,30 @@ const FeaturedData = [
     id: 3,
     title: "Pokémon™Arceus",
     category: "Nintendo Switch",
+    artist: "Richard Nixon",
     tracks: [
       {
         id: 1,
-        title: "Song for Myself",
-        artist: "Jesus Christiansen",
+        title: "Sing for Myself",
+        artist: "Richard Nixon",
         length: "3.45",
       },
       {
         id: 2,
-        title: "Song for Yourself",
-        artist: "Jesus Christiansen",
+        title: "Long for Yourself",
+        artist: "Richard Nixon",
         length: "3.25",
       },
       {
         id: 3,
-        title: "Song for Bob",
-        artist: "Jesus Christiansen",
+        title: "Bong for Bob",
+        artist: "Richard Nixon",
         length: "3.15",
       },
       {
         id: 4,
-        title: "Song for God",
-        artist: "Jesus Christiansen",
+        title: "Thong for God",
+        artist: "Richard Nixon",
         length: "3.05",
       },
     ],
@@ -108,29 +111,30 @@ const FeaturedData = [
     id: 4,
     title: "Super™ 3D World",
     category: "Nintendo Switch",
+    artist: "Richard Nixon",
     tracks: [
       {
         id: 1,
-        title: "Song for Myself",
-        artist: "Fælming Bamse",
+        title: "Song for Silly",
+        artist: "Richard Nixon",
         length: "3.45",
       },
       {
         id: 2,
-        title: "Song for Yourself",
-        artist: "Fælming Bamse",
+        title: "Song for Billy",
+        artist: "Richard Nixon",
         length: "3.25",
       },
       {
         id: 3,
-        title: "Song for Bob",
-        artist: "Fælming Bamse",
+        title: "Song for Blob",
+        artist: "Richard Nixon",
         length: "3.15",
       },
       {
         id: 4,
-        title: "Song for God",
-        artist: "Fælming Bamse",
+        title: "Song for Gillian",
+        artist: "Richard Nixon",
         length: "3.05",
       },
     ],
@@ -140,6 +144,7 @@ const FeaturedData = [
   {
     id: 5,
     title: "Cuphead",
+    artist: "Hurtig Buks",
     category: "Nintendo Switch",
     tracks: [
       {
@@ -174,6 +179,7 @@ const FeaturedData = [
     id: 6,
     title: "Minecraft",
     category: "Nintendo Switch",
+    artist: "MOMBOD",
     tracks: [
       {
         id: 1,
@@ -208,6 +214,7 @@ const FeaturedData = [
     id: 7,
     title: "Unravel Two",
     category: "Nintendo Switch",
+    artist: "Grydeske",
     tracks: [
       {
         id: 1,
