@@ -13,7 +13,7 @@ import { IoPauseSharp } from "react-icons/io5";
 
 const Player = () => {
   const [maximized, setMaximized] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const player = useRef();
 
@@ -116,7 +116,6 @@ const Player = () => {
           </div>
 
           <AudioPlayer
-            autoPlay
             className="absolute"
             src={audioFile}
             onPlay={(e) => {
