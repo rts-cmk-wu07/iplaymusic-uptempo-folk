@@ -119,7 +119,10 @@ const Player = () => {
             autoPlay
             className="absolute"
             src={audioFile}
-            onPlay={(e) => console.log("onPlay")}
+            onPlay={(e) => {
+              console.log("onPlay");
+              setIsPlaying(true);
+            }}
             ref={player}
             showSkipControls={true}
             customVolumeControls={[]}
