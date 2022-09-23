@@ -25,6 +25,28 @@ const Player = () => {
     player.current.audio.current.pause();
   };
 
+  /*
+  require("react/package.json"); // react is a peer dependency.
+  var useSwipeable = require("react-swipeable");
+
+  const maximizedSwipeHandler = useSwipeable({
+    onSwipedDown: (eventData) => console.log("User Swiped!", eventData),
+    ...config,
+  });
+
+  
+
+  const config = {
+    delta: 10, // min distance(px) before a swipe starts. *See Notes*
+    preventScrollOnSwipe: false, // prevents scroll during swipe (*See Details*)
+    trackTouch: true, // track touch input
+    trackMouse: false, // track mouse input
+    rotationAngle: 0, // set a rotation angle
+    swipeDuration: Infinity, // allowable duration of a swipe (ms). *See Notes*
+    touchEventOptions: { passive: true }, // options for touch listeners (*See Details*)
+  };
+  */
+
   const artistName = "Willie Nelson";
   const songTitle = "On the Road Again";
 
@@ -34,7 +56,10 @@ const Player = () => {
     <>
       <>
         {!maximized && (
-          <div className="fixed right-0 left-0 bottom-[7%] w-screen h-16 px-1 pb-5 bg-white dark:bg-[#341931]">
+          <div
+            /*{...maximizedSwipeHandler}*/
+            className="fixed right-0 left-0 bottom-[7%] w-screen h-16 px-1 pb-5 bg-white dark:bg-[#341931]"
+          >
             <div className="flex justify-around pt-1 pb-1 border-2 border-[#FF1168] rounded-lg">
               <div className="flex" onClick={(event) => setMaximized(true)}>
                 <div className="w-12 h-12">
