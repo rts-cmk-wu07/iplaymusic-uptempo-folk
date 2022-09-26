@@ -36,9 +36,9 @@ const Playlists = () => {
         backgroundSize: "cover",
       }}
     >
-      <SearchHeader/>
-      <h2 className="text-[48px] ml-10 pt-8 pb-8 font-extrabold text-white">
-        Album or playlist
+      <SearchHeader />
+      <h2 className="text-[48px] ml-10 pt-20 pb-8 font-extrabold text-white">
+        Playlists
       </h2>
 
       <section className="h-52">
@@ -51,12 +51,10 @@ const Playlists = () => {
           onSlideChange={callback}
         />
       </section>
-
-      <section>
-        <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
-          {FeaturedData[0].title}
-        </h3>
-
+      <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
+        {FeaturedData[0].title}
+      </h3>
+      <section className="overflow-y-scroll h-[17rem]">
         <table>
           <tbody>
             {FeaturedData[0].tracks.map((item) => (
@@ -102,12 +100,13 @@ const Playlists = () => {
             ))}
           </tbody>
         </table>
+        <div className="flex justify-center mt-10 mb-10">
+          <button className="text-[#FF1168] font-semibold text-lg m-auto rounded-full w-[90%] h-16 border-4 border-[#FF1168]">
+            LISTEN ALL
+          </button>
+        </div>
       </section>
-      <section className="flex justify-center mt-12 mb-16">
-        <button className="text-[#FF1168] font-semibold text-lg m-auto rounded-full w-[90%] h-16 border-4 border-[#FF1168]">
-          LISTEN ALL
-        </button>
-      </section>
+
       <section>.</section>
     </div>
   );
