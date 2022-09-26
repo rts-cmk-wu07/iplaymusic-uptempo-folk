@@ -1,21 +1,17 @@
 import Nav from "./Nav";
-import Search from "./Search";
+
 import { Outlet } from "react-router-dom";
-import Previous from "./Previous";
-import Player from "../Pages/Player";
+import SearchHeader from "./SearchHeader";
 
 const Layout = () => {
   return (
     <div className="h-screen overflow-hidden">
-      <div className="h-[5%]">
-        <Previous />
-        <Search />
-      </div>
-      <main className="h-[88%] overflow-scroll dark:bg-secondaryColor ">
+      <main className="h-[92%]  dark:bg-secondaryColor ">
+        <SearchHeader />
         <Outlet />
       </main>
 
-      <Nav className="h-[6%]" />
+      <Nav className="h-[8%]" />
     </div>
   );
 };

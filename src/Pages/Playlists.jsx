@@ -5,6 +5,7 @@ import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
 import { useState } from "react";
 import { Carousel } from "3d-react-carousal";
+import SearchHeader from "../Component/SearchHeader";
 
 const Playlists = () => {
   /*NB! Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
@@ -35,6 +36,7 @@ const Playlists = () => {
         backgroundSize: "cover",
       }}
     >
+      <SearchHeader/>
       <h2 className="text-[48px] ml-10 pt-8 pb-8 font-extrabold text-white">
         Album or playlist
       </h2>

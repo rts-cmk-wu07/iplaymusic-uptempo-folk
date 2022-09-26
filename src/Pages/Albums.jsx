@@ -6,6 +6,7 @@ import FeaturedData from "../Component/Data";
 import { IoMdSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
+import SearchHeader from "../Component/SearchHeader";
 
 const Albums = () => {
   const settings = {
@@ -27,6 +28,7 @@ const Albums = () => {
 
   return (
     <div>
+    
       <div className="h-1/3">
         <h1 className="text-[48px] pl-10 pb-3 font-extrabold ">All Albums</h1>
         <div className="flex justify-between w-4/5 m-auto">
