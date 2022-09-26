@@ -7,6 +7,7 @@ import wave from "../assets/wave.svg";
 import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
 import { useState } from "react";
+import SearchHeader from "../Component/SearchHeader";
 
 const GenericArtistGenre = () => {
   const artistName = "Richard Nixon";
@@ -42,6 +43,7 @@ const GenericArtistGenre = () => {
         backgroundSize: "cover",
       }}
     >
+
       <div></div>
       <h2 className="text-[48px] ml-10 pt-8 pb-8 font-extrabold z-20 text-white">
         {artistName}

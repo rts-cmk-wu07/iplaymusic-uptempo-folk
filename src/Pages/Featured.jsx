@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import FeaturedData from "../Component/Data";
+import SearchHeader from "../Component/SearchHeader";
 
 
 const Featured = () => {
@@ -27,6 +28,7 @@ const Featured = () => {
    
     return ( 
         <div className="featured overflow-hidden">
+
           <div> 
             <h1 className="font-extrabold text-[48px] pb-2 pl-8 static">Featured</h1>
           </div>
