@@ -28,9 +28,10 @@ const Albums = () => {
 
   return (
     <div>
-    
       <div className="h-1/3">
-        <h1 className="text-[48px] pl-10 pb-3 font-extrabold ">All Albums</h1>
+        <h1 className="text-[48px] pl-10 pb-3 font-extrabold pt-20">
+          All Albums
+        </h1>
         <div className="flex justify-between w-4/5 m-auto">
           <h3 className=" text-[20px] font-bold dark:text-white">
             Featured Albums
@@ -56,7 +57,7 @@ const Albums = () => {
         </h2>
         <h3 className=" pt-10 text-[20px]  text-[#ff1168]">View All</h3>
       </div>
-      <div className="flex overflow-y-scroll h-[28rem]">
+      <div className="flex overflow-y-scroll h-[38vh]">
         <div>
           {FeaturedData.map((item) => (
             <div className="album">
