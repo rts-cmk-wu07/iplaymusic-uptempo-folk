@@ -6,7 +6,7 @@ import SearchHeader from "./SearchHeader";
 const Layout = () => {
   return (
     <div className="h-screen overflow-hidden">
-      <main className="h-[92%]  dark:bg-secondaryColor ">
+      <main className="h-[92%] pb-14 dark:bg-secondaryColor ">
         <SearchHeader />
         <Outlet />
       </main>

@@ -58,7 +58,7 @@ const Player = () => {
         {!maximized && (
           <div
             /*{...maximizedSwipeHandler}*/
-            className="fixed right-0 left-0 bottom-[8%] w-screen h-16 px-1 pb-5 bg-white dark:bg-[#341931]"
+            className="fixed right-0 left-0 bottom-[7%] w-screen h-16 px-1 pb-5 bg-white dark:bg-[#341931]"
           >
             <div className="flex justify-around pt-1 pb-1 border-2 border-[#FF1168] rounded-lg">
               <div className="flex" onClick={(event) => setMaximized(true)}>

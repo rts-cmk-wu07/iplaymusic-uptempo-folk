@@ -14,15 +14,35 @@ const Nav = () => {
       <ul className="flex m-auto justify-between w-4/5 pt-2">
         <li>
           <NavLink to="/albums">
-            <div className="justify-center flex text-transparent bg-clip-text bg-gradient-to-r from-primaryColor to-orange">
-              <IoAlbumsSharp className="mt-2" size={35} />
+            <div className="justify-center flex">
+              <svg width="0" height="0">
+                <linearGradient
+                  id="prim-orange-gradient"
+                  x1="100%"
+                  y1="0%"
+                  x2="0%"
+                  y2="0%"
+                >
+                  <stop stopColor="#FF6A00" offset="0%" />
+                  <stop stopColor="#EE0979" offset="100%" />
+                </linearGradient>
+              </svg>
+              <IoAlbumsSharp
+                style={{ fill: "url(#prim-orange-gradient)" }}
+                className="mt-2"
+                size={35}
+              />
             </div>
           </NavLink>
         </li>
         <li>
           <NavLink to="/playlists">
             <div className="justify-center flex text-transparent bg-clip-text bg-gradient-to-r from-primaryColor to-orange">
-              <RiPlayListFill className="mt-2" size={35} />
+              <RiPlayListFill
+                style={{ fill: "url(#prim-orange-gradient)" }}
+                className="mt-2"
+                size={35}
+              />
             </div>
           </NavLink>
         </li>
@@ -35,12 +55,20 @@ const Nav = () => {
         </li>
         <li>
           <button onClick={clickHandler}>
-            <VscColorMode className="mt-2" size={35} />
+            <VscColorMode
+              style={{ fill: "url(#prim-orange-gradient)" }}
+              className="mt-2"
+              size={35}
+            />
           </button>
         </li>
         <li>
           <NavLink to="/categories">
-            <BiCategory className="mt-2" size={35} />
+            <BiCategory
+              style={{ fill: "url(#prim-orange-gradient)" }}
+              className="mt-2"
+              size={35}
+            />
           </NavLink>
         </li>
       </ul>
