@@ -50,7 +50,7 @@ const AlbumDetails = () => {
         All songs
       </h3>
 
-      <section className="overflow-y-scroll h-[35vh]">
+      <section className="overflow-y-scroll h-[35vh] pb-16">
         <table>
           <tbody>
             {FeaturedData[4].tracks.map((item) => (
@@ -98,7 +98,7 @@ const AlbumDetails = () => {
         </table>{" "}
       </section>
 
-      <section>.</section>
+      <section className="pt-20">.</section>
     </div>
   );
 };
