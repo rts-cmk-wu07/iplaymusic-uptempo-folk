@@ -171,6 +171,42 @@ const FeaturedData = [
         artist: "Hurtig Buks",
         length: "3.05",
       },
+      {
+        id: 5,
+        title: "Song for Ron",
+        artist: "Hurtig Buks",
+        length: "3.05",
+      },
+      {
+        id: 6,
+        title: "Song for Gunnar",
+        artist: "Hurtig Buks",
+        length: "3.05",
+      },
+      {
+        id: 7,
+        title: "Song for Mikkelsen",
+        artist: "Hurtig Buks",
+        length: "3.05",
+      },
+      {
+        id: 8,
+        title: "Song for Rie",
+        artist: "Hurtig Buks",
+        length: "3.05",
+      },
+      {
+        id: 9,
+        title: "Song for Sofia",
+        artist: "Hurtig Buks",
+        length: "3.05",
+      },
+      {
+        id: 10,
+        title: "Song for Marianne",
+        artist: "Hurtig Buks",
+        length: "3.05",
+      },
     ],
     linkImg:
       "https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_auto/c_scale,w_300/v1/ncom/en_US/games/switch/c/cuphead-switch/hero?_a=AJADJWI0",
