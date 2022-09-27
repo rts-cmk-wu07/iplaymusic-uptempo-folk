@@ -92,7 +92,7 @@ const Playlists = () => {
                   </p>
                 </td>
                 <td>
-                  <p className="mr-3 pl-20 font-medium dark:text-white text-base">
+                  <p className="mr-3 pl-20 font-medium dark:text-white text-base text-right">
                     {item.length}
                   </p>
                 </td>
