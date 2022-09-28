@@ -16,7 +16,7 @@ const TrackItem = ({ item }) => {
             className="p-2 rounded-full w-8 h-8 bg-gradient-to-r from-[#FF1168] to-[#f2bc06]"
             onClick={(event) => {
               setSongPlaying(true);
-              setCurrentSong(item.id);
+              setCurrentSong(item.id /*eller 'item.src'??*/);
               //pressPlay();
             }}
           >
