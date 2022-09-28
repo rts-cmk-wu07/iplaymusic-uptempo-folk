@@ -104,7 +104,7 @@ const Player = () => {
         <div
           className={
             maximized
-              ? "fixed right-0 top-0 bottom-0 w-screen h-screen"
+              ? "fixed right-0 top-0 bottom-0 w-screen h-screen z-20"
               : "hidden"
           }
         >
