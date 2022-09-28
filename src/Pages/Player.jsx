@@ -11,9 +11,14 @@ import { IoPause } from "react-icons/io5";
 import { IoPlaySharp } from "react-icons/io5";
 import { IoPauseSharp } from "react-icons/io5";
 
+//import { CurrentSongContext } from "../Contexts/CurrentSongContext";
+
 const Player = () => {
   const [maximized, setMaximized] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const [currentSong, setCurrentSong] = useState(false);
+  //replace 'audioFile' with 'currentSong'
 
   const player = useRef();
 
@@ -141,6 +146,7 @@ const Player = () => {
           </div>
 
           <AudioPlayer
+            autoPlay
             className="absolute"
             src={audioFile}
             onPlay={(e) => {

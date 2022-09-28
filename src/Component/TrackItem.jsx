@@ -9,7 +9,7 @@ const TrackItem = ({ item }) => {
   const { setCurrentSong } = useContext(CurrentSongContext);
 
   return (
-    <tr onClick={() => setSongPlaying(item)} className="my-11">
+    <tr onClick={() => setSongPlaying(true)} className="my-11">
       <td className="px-5 py-4">
         {!songPlaying && (
           <button
