@@ -34,10 +34,10 @@ const Search = () => {
                 <label htmlFor=""></label>
                 <input
                   className="text-black dark:bg-secondaryColor dark:text-white w-[90%] m-2 border-none font-[15px] p-5"
-                  type="text"
+                  type="search"
                   name="search"
                   id="search"
-                  placeholder="What do you want to hear?"
+                  placeholder="What do you wanna hear?"
                 />
               </form>
             </section>
