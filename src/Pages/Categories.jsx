@@ -9,13 +9,13 @@ const Categories = () => {
                 {CategoriesData.map((item) => (
                     <div className="pb-3">
                         <div className="bg-primaryColor  border-black border ">
-                            <button className="ml-2 text-white font-bold dark:text-black">{item.CategoryName}</button>
-                            <button className=" align-middle ml-60">
+                            <a><button className="ml-2 text-white font-bold dark:text-black">{item.CategoryName}</button></a>
+                            <button className="align-middle ">
                                 <IoIosMore color="white" size={40} />
                             </button>
                         </div>
-                        <div className="text-black dark:text-white">
-                            <a>{item.SubcategoryName}</a>
+                        <div className="flex text-black dark:text-white">
+                            <a className="flex ml-10">{item.SubcategoryName}</a>
                         </div>
                     </div>
                 ))}

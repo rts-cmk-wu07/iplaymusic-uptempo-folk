@@ -5,18 +5,18 @@ export default function Login() {
 
 
   return (
-    <div className=" text-fuchsia-900 ">
-      <h1 className="flex justify-start font-bold text-3xl">Log In</h1>
+    <div className="bg-white text-secondaryColor  dark:text-white dark:bg-primaryColor">
+      <h2 className="flex justify-start font-bold text-3xl">Log In</h2>
       <form className="ml-10" >
         <div className="p-16 mt-48">
         <div className="">
           <label >Username
-            <input  className="pl-3 border-black border placeholder-neutral-900" placeholder="Enter your username" type="text" name="username" />
+            <input  className="pl-3 placeholder-neutral-900" placeholder="Enter your username" type="text" name="username" />
           </label>
         </div>
         <div className="mt-6">
           <label>Password
-            <input className="pl-3 border-black border placeholder-neutral-900" placeholder="Enter your password" type="password" name="password" />
+            <input className="pl-3  placeholder-neutral-900" placeholder="Enter your password" type="password" name="password" />
           </label>
         </div>
         <div className="pt-16">
