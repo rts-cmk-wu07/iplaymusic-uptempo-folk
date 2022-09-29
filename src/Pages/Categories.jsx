@@ -11,10 +11,10 @@ const Categories = () => {
                         <div className="bg-primaryColor rounded-md p-1 pl-2 flex justify-between">
                             <button className="ml-2 font-bold text-white">{item.CategoryName}</button>
                             <button className=" align-middle pr-2">
-                                <IoIosMore color="white dark:black" size={40} />
+                                <IoIosMore color="white" size={40} />
                             </button>
                         </div>
-                        <div className="text-white ">
+                        <div className="text-white dark:text-white">
                             <a>{item.SubcategoryName}</a>
                         </div>
                     </div>
