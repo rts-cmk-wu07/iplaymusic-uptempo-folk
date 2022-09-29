@@ -14,7 +14,7 @@ const Categories = () => {
                                 <IoIosMore color="white dark:black" size={40} />
                             </button>
                         </div>
-                        <div className="text-black dark:text-white">
+                        <div className="text-white ">
                             <a>{item.SubcategoryName}</a>
                         </div>
                     </div>
