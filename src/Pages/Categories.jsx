@@ -9,7 +9,7 @@ const Categories = () => {
                 {CategoriesData.map((item) => (
                     <div className="pb-3">
                         <div className="bg-primaryColor rounded-md p-1 pl-2 flex justify-between">
-                            <button className="ml-2 text-black font-bold dark:text-white">{item.CategoryName}</button>
+                            <button className="ml-2 font-bold text-white">{item.CategoryName}</button>
                             <button className=" align-middle pr-2">
                                 <IoIosMore color="white dark:black" size={40} />
                             </button>
