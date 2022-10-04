@@ -1,16 +1,40 @@
 import FeaturedData from "../Component/Data";
-import artistPhoto from "../assets/player-fg.jpg";
 import wave from "../assets/wave.svg";
-import { IoPlay } from "react-icons/io5";
-import { IoPause } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Carousel } from "3d-react-carousal";
 import SearchHeader from "../Component/SearchHeader";
 import TrackItem from "../Component/TrackItem";
+import axios from "axios";
+import TokenContext from "../Contexts/TokenContext";
 
 const Playlists = () => {
   /*NB! Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
   const [coloredHero, setColoredHero] = useState(true);*/
+
+  var [token] = useContext(TokenContext);
+  var [content, setContent] = useState({});
+  var [tracks, setTracks] = useState({});
+
+  var playlistID =
+    "https://api.spotify.com/v1/playlists/37i9dQZF1DWT9XEOPDgFX3?si=HuQ-Wy9XS4-B2HbI014GXg";
+
+  useEffect(
+    function () {
+      axios
+        .get(
+          "https://api.spotify.com/v1/playlists/37i9dQZF1DWT9XEOPDgFX3/tracks",
+          {
+            headers: {
+              Authorization: "Bearer " + token.access_token,
+            },
+          }
+        )
+        .then((response) => setContent(response.data));
+    },
+    [token, setTracks]
+  );
+
+  console.log("tracks", tracks);
 
   const [songPlaying, setSongPlaying] = useState("");
 

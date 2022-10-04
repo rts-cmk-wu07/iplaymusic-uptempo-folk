@@ -11,7 +11,7 @@ import { IoPause } from "react-icons/io5";
 import { IoPlaySharp } from "react-icons/io5";
 import { IoPauseSharp } from "react-icons/io5";
 
-//import { CurrentSongContext } from "../Contexts/CurrentSongContext";
+import { CurrentSongContext } from "../Contexts/CurrentSongContext";
 
 const Player = () => {
   const [maximized, setMaximized] = useState(false);
