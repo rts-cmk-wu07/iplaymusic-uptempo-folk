@@ -9,7 +9,7 @@ const TrackItem = ({ item }) => {
   const { setCurrentSong } = useContext(CurrentSongContext);
 
   return (
-    <tr onClick={() => setSongPlaying(true)} className="my-11">
+    <tr className="my-11">
       <td className="px-5 py-4">
         {!songPlaying && (
           <button
@@ -36,8 +36,18 @@ const TrackItem = ({ item }) => {
         )}
       </td>
       <td>
-        <p className="pb-1/2 font-bold text-lg dark:text-white">{item.title}</p>
-        <p className="font-medium dark:text-white text-base">{item.artist}</p>
+        <p
+          onClick={() => setSongPlaying(true)}
+          className="pb-1/2 font-bold text-lg dark:text-white"
+        >
+          {item.title}
+        </p>
+        <p
+          onClick={() => setSongPlaying(true)}
+          className="font-medium dark:text-white text-base"
+        >
+          {item.artist}
+        </p>
       </td>
       <td>
         <p className="mr-3 pl-20 font-medium dark:text-white text-base text-right">
