@@ -3,8 +3,27 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import FeaturedData from "../Component/Data";
 import SearchHeader from "../Component/SearchHeader";
+import { useContext ,useEffect,useState} from "react";
+import axios from "axios";
+import TokenContext from "../Contexts/TokenContext";
+import { Navigate } from "react-router-dom";
+
 
 const Featured = () => {
+
+  var [token]=useContext(TokenContext);
+  var[content,setContent]=useState({})
+
+  useEffect(function(){
+    axios.get("https://api.spotify.com/v1/me",{
+      headers:{
+        "Authorization":"Bearer " + token.access_token
+      }
+    })
+    .then(response=>setContent(response.data));
+
+  },[token,setContent])
+
   const settings = {
     vertical: true,
     verticalSwiping: true,
@@ -37,12 +56,12 @@ const Featured = () => {
             <div className="featured-card m-auto ">
               <div className="featuredCard-top rounded-md relative">
                 <img
-                  src={item.linkImg}
+                  src={item.image}
                   alt=""
                   className=" m-auto w-[330px] h-[500px] pt-10 rounded-md shadow-black shadow-lg "
                 />
                 <h2 className="featuredText absolute text-3xl font-extrabold text-white top-3/4 left-1/2 -translate-x-2/3 -translate-y-1/3 ">
-                  {item.title}
+                  {item.genre}
                 </h2>
                 {/* <h5 className="featuredText absolute text-xl font-extrabold text-white top-4/5 left-1/2 -translate-x-2/3 -translate-y-2/3 ">{item.title}</h5> */}
               </div>
