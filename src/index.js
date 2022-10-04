@@ -15,11 +15,10 @@ const [maximized, setMaximized] = useState(false);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <CurrentSongProvider>
+    
       <BrowserRouter>
         <App />
       </BrowserRouter>
-      <Player />
-    </CurrentSongProvider>
+    
   </>
 );
