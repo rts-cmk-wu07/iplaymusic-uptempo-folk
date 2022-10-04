@@ -146,7 +146,6 @@ const Player = () => {
           </div>
 
           <AudioPlayer
-            autoPlay
             className="absolute"
             src={audioFile}
             onPlay={(e) => {

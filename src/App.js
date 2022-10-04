@@ -14,6 +14,7 @@ import Login from "./Pages/Login";
 import Callback from "./Pages/Callback";
 import TokenContext from "./Contexts/TokenContext";
 import { useState } from "react";
+import CurrentSongProvider from "./Contexts/CurrentSongContext";
 
 // function App() {
 //   return (
@@ -48,29 +49,31 @@ function App() {
 
   return (
     <TokenContext.Provider value={tokenState}>
-      <>
-        <Routes>
-          {/* <Route path="/" element={<Layout />}>
-            <Route index element={<Featured />} />
-            <Route path="/albumDetails" element={<AlbumDetails />} />
-            <Route path="/albums" element={<Albums />} />
-            <Route path="/playlists" element={<Playlists />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/login" element={<Login />} />
-            <Route
-              path="/genericArtistGenre"
-              element={<GenericArtistGenre />}
-            />
-            <Route
-              path="/genericPlaylistAlbum"
-              element={<GenericPlaylistAlbum />}
-            />
-          </Route> */}
-          <Route path="/" element={<Login />}></Route>
-          <Route path="/callback" element={<Callback />}></Route>
-          <Route path="/featured" element={<Featured />} />
-        </Routes>
-      </>
+      <CurrentSongProvider>
+        <>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="/featured" element={<Featured />} />
+              <Route path="/albumDetails" element={<AlbumDetails />} />
+              <Route path="/albums" element={<Albums />} />
+              <Route path="/playlists" element={<Playlists />} />
+              <Route path="/categories" element={<Categories />} />
+
+              <Route
+                path="/genericArtistGenre"
+                element={<GenericArtistGenre />}
+              />
+              <Route
+                path="/genericPlaylistAlbum"
+                element={<GenericPlaylistAlbum />}
+              />
+            </Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/callback" element={<Callback />}></Route>
+          </Routes>
+          <Player />
+        </>
+      </CurrentSongProvider>
     </TokenContext.Provider>
   );
 }
