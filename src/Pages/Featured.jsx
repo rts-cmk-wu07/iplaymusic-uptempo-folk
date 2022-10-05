@@ -6,31 +6,34 @@ import SearchHeader from "../Component/SearchHeader";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import TokenContext from "../Contexts/TokenContext";
+import FeaturedCard from "../Component/FeaturedCard";
+
 
 const Featured = () => {
   var [token] = useContext(TokenContext);
-  var [content, setContent] = useState({});
+  var [content, setContent] = useState([]);
 
   useEffect(
     function () {
-      axios
-        .get("https://api.spotify.com/v1/me", {
+      axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
           headers: {
             Authorization: "Bearer " + token.access_token,
           },
         })
-        .then((response) => setContent(response.data));
+        .then((response) => setContent(response.data.playlists.items));
     },
     [token, setContent]
   );
+
+
 
   const settings = {
     vertical: true,
     verticalSwiping: true,
     infinite: false,
-    speed: 600,
-    slidesToShow: 1.5,
-    slidesToScroll: 1,
+    speed: 700,
+    slidesToShow: 1.95,
+    slidesToScroll: 1.95,
     initialSlide: 0,
     responsive: [
       {
@@ -52,8 +55,8 @@ const Featured = () => {
       </div>
       <div className="rounded-md">
         <Slider {...settings} className="h-[600px] ">
-          {FeaturedData.map((item) => (
-            <div className="featured-card m-auto ">
+          {/* {content.map((item) => (
+            <div className="featured-card m-auto " key={item.id}>
               <div className="featuredCard-top rounded-md relative">
                 <img
                   src={item.image}
@@ -63,10 +66,13 @@ const Featured = () => {
                 <h2 className="featuredText absolute text-3xl font-extrabold text-white top-3/4 left-1/2 -translate-x-2/3 -translate-y-1/3 ">
                   {item.genre}
                 </h2>
-                {/* <h5 className="featuredText absolute text-xl font-extrabold text-white top-4/5 left-1/2 -translate-x-2/3 -translate-y-2/3 ">{item.title}</h5> */}
+                <h5 className="featuredText absolute text-xl font-extrabold text-white top-4/5 left-1/2 -translate-x-2/3 -translate-y-2/3 ">{item.title}</h5>
               </div>
             </div>
-          ))}
+          ))} */}
+        {content?.map(item => (
+					<FeaturedCard key={item.id} image={item.images[0].url} album={item.name} genre={item.type} id={item.id} />
+				))}
         </Slider>
       </div>
     </div>
