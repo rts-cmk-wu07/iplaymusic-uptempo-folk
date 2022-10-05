@@ -34,6 +34,12 @@ export default function Callback(props) {
         )
 
         .then((response) => {
+          var d = new Date();
+
+          d.setSeconds(d.getSeconds() + response.data.expires_in - 2);
+          console.log(response);
+
+          response.data.expires_in = d.valueOf();
           setToken(response.data);
 
           navigate("/featured");
