@@ -12,7 +12,7 @@ const Playlists = () => {
   const [coloredHero, setColoredHero] = useState(true);*/
 
   var [token] = useContext(TokenContext);
-  var [content, setContent] = useState({});
+
   var [tracks, setTracks] = useState({});
 
   var playlistID =
@@ -20,16 +20,30 @@ const Playlists = () => {
 
   useEffect(
     function () {
+      // if (token.expires_in < new Date().valueOf()){
+      //   axios
+      //     .post(
+      //       "https://accounts.spotify.com/api/token",
+      //       {
+      //         headers: {
+
+      //         },
+      //       }
+      //     )
+      //     // .then((response) => setTracks(response.data));
+
+      // }
+
       axios
         .get(
-          "https://api.spotify.com/v1/playlists/37i9dQZF1DWT9XEOPDgFX3/tracks",
+          "https://api.spotify.com/v1/playlists/6rqhFgbbKwnb9MLmUQDhG6/tracks/",
           {
             headers: {
               Authorization: "Bearer " + token.access_token,
             },
           }
         )
-        .then((response) => setContent(response.data));
+        .then((response) => setTracks(response.data));
     },
     [token, setTracks]
   );
