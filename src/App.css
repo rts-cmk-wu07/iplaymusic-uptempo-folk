@@ -3,18 +3,6 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.featured {
-
-  /* margin:auto 0; */
-  /* margin-top: 30px; */
-}
-/* img{
-  border-radius: 8px;
- 
-} */
-.featured-card{
- 
-}
 
 .featuredCard-top{
   width: 100%;
@@ -60,11 +48,9 @@ h1 {
 .album{
   display: flex;
   padding-top: 25px;
-  /* margin-bottom: 40px; */
   padding-left: 28px;
-  
-
 }
+
 .albumImg{
   border-radius: 8px;
   width: 100px;

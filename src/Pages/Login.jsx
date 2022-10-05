@@ -30,15 +30,10 @@
 
 // import querystring from "querystring";
 
-export default function Login() {
-  // var queryParameters=querystring.stringify({
-  //   response_type:"code",
-  //   client_id:"1752a43ddabe4656a3551ab520423e3a",
-  //   scope:"user-read-private user-read-email",
-  //   redirect_url:"http://localhost:8888/callback",
-  //   state:"skdjfneahrieqjfasknf3æqi4ur398riwjefwfng03ri21fvl21345"
 
-  // });
+import spotify_icon from "../img/Spotify_icon.png"
+export default function Login() {
+ 
 
   const searchParams = new URLSearchParams();
   searchParams.append("response_type", "code");
@@ -50,11 +45,12 @@ export default function Login() {
   var queryParameters = searchParams.toString();
 
   return (
-    <>
-      <h1>Login</h1>
+    <div className="bg-black h-screen  flex m-auto justify-center pt-60">
+   
       <a href={`https://accounts.spotify.com/authorize?${queryParameters}`}>
-        Log in with Spotify
+        <img src={spotify_icon} alt="" className="w-20 h-20" />
+        
       </a>
-    </>
+    </div>
   );
 }

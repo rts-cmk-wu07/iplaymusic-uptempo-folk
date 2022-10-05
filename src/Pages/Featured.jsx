@@ -49,27 +49,13 @@ const Featured = () => {
   return (
     <div className="featured overflow-hidden">
       <div>
-        <h1 className="font-extrabold text-[48px] pb-2 pl-8 pt-20 static">
+        <h1 className="font-bold text-[48px] pb-2 pl-8 pt-20 static">
           Featured
         </h1>
       </div>
       <div className="rounded-md">
         <Slider {...settings} className="h-[600px] ">
-          {/* {content.map((item) => (
-            <div className="featured-card m-auto " key={item.id}>
-              <div className="featuredCard-top rounded-md relative">
-                <img
-                  src={item.image}
-                  alt=""
-                  className=" m-auto w-[330px] h-[500px] pt-10 rounded-md shadow-black shadow-lg "
-                />
-                <h2 className="featuredText absolute text-3xl font-extrabold text-white top-3/4 left-1/2 -translate-x-2/3 -translate-y-1/3 ">
-                  {item.genre}
-                </h2>
-                <h5 className="featuredText absolute text-xl font-extrabold text-white top-4/5 left-1/2 -translate-x-2/3 -translate-y-2/3 ">{item.title}</h5>
-              </div>
-            </div>
-          ))} */}
+         
         {content?.map(item => (
 					<FeaturedCard key={item.id} image={item.images[0].url} album={item.name} genre={item.type} id={item.id} />
 				))}
