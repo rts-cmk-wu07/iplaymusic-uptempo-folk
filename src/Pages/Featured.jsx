@@ -56,7 +56,7 @@ const Featured = () => {
       <div className="rounded-md">
         <Slider {...settings} className="h-[600px] ">
          
-        {content.map(item => (
+        {content?.map(item => (
 					<FeaturedCard key={item.id} image={item.images[0].url} album={item.name} genre={item.type} id={item.id} />
 				))}
         </Slider>

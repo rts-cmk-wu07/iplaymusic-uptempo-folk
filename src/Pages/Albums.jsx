@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { NavLink } from "react-router-dom";
 import FeaturedData from "../Component/Data";
 import { IoMdSettings } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import SearchHeader from "../Component/SearchHeader";
 import axios from "axios";
@@ -13,9 +13,11 @@ import TokenContext from "../Contexts/TokenContext";
 
 
 
+
 const Albums = () => {
   var [token] = useContext(TokenContext);
   var [content, setContent] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(
     function () {
@@ -61,12 +63,17 @@ const Albums = () => {
           <h5 className="text-[20px]  text-[#ff1168] ">View All</h5>
         </div>
 
-        <Slider {...settings} className="albums ">
+        <Slider {...settings} className="albums">
           {content.map((item) => (
-            <div className="card">
-              <div className="card-top">
-                <img src={item.images[0].url} alt=""/>  
+            <div className="card" >
+              <div className="card-top" onClick={() =>navigate(/playlists/id)}>
+                
+                {/* <Link to={/playlists/id}> */}
+                  <img src={item.images[0].url} alt="" />
+                  {/* </Link> */}
+
               </div>
+          
             </div>
           ))}
         </Slider>
@@ -80,11 +87,11 @@ const Albums = () => {
       </div>
       <div className="flex overflow-y-scroll h-[38vh]">
         <div>
-          {FeaturedData.map((item) => (
+          {content.map((item) => (
             <div className="album">
-              <img src={item.linkImg} alt="" className="albumImg" />
+              <img src={item.images[0].url} alt="" className="albumImg" />
               <div className="pt-10 pl-3">
-                <h2 className="font-bold dark:text-white">{item.title}</h2>
+                <h2 className="font-bold dark:text-white">{item.name}</h2>
                 <p className="dark:text-white">{item.category}</p>
               </div>
             </div>
