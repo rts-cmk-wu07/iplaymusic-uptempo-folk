@@ -116,15 +116,23 @@ const Playlists = (props) => {
       <section className="overflow-y-scroll h-[17rem]">
         <table>
           <tbody>
-            {FeaturedData[0].tracks.map((item) => (
+            {/* {FeaturedData[0].tracks.map((item) => (
               <TrackItem item={item} />
-            ))}
-            {/* {tracks.item.map((item) => (
+            ))} */}
+            {tracks.items?.map((item) => (
               <>
                 <p>{item.track.name}</p>
-                <TrackItem item={item} />
+                <p>{item.track.external_urls.href}</p>
+                <TrackItem
+                  item={item}
+                  key={item.id}
+                  id={item.id}
+                  // artist={item.artists[0].name}
+                  title={item.name}
+                  duration={item.duration_ms}
+                />
               </>
-            ))} */}
+            ))}
           </tbody>
         </table>
         <div className="flex justify-center mt-10 mb-10">
