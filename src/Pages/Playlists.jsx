@@ -122,7 +122,7 @@ const Playlists = (props) => {
             {tracks.items?.map((item) => (
               <>
                 <p>{item.track.name}</p>
-                <p>{item.track.external_urls.href}</p>
+                <p>{item.track.href}</p>
                 <TrackItem
                   item={item}
                   key={item.id}
