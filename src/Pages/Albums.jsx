@@ -19,12 +19,12 @@ const Albums = () => {
 
   useEffect(
     function () {
-      axios.get("https://api.spotify.com/v1/albums/id", {
+      axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
           headers: {
             Authorization: "Bearer " + token.access_token,
           },
         })
-        .then((response) => setContent(response.data.albums.items));
+        .then((response) => setContent(response.data.playlists.items));
     },
     [token, setContent]
   );
@@ -65,7 +65,7 @@ const Albums = () => {
           {content.map((item) => (
             <div className="card">
               <div className="card-top">
-                <img src={item.images[0].url} alt="" />  
+                <img src={item.images[0].url} alt=""/>  
               </div>
             </div>
           ))}
