@@ -6,17 +6,20 @@ import SearchHeader from "../Component/SearchHeader";
 import TrackItem from "../Component/TrackItem";
 import axios from "axios";
 import TokenContext from "../Contexts/TokenContext";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Playlists = () => {
+const Playlists = (props) => {
   /*NB! Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
   const [coloredHero, setColoredHero] = useState(true);*/
 
   var [token] = useContext(TokenContext);
 
-  var [tracks, setTracks] = useState({});
+  var [playlist, setPlaylist] = useState([]);
 
-  var playlistID =
-    "https://api.spotify.com/v1/playlists/37i9dQZF1DWT9XEOPDgFX3?si=HuQ-Wy9XS4-B2HbI014GXg";
+  var [tracks, setTracks] = useState([]);
+
+  const { id } = useParams();
 
   useEffect(
     function () {
@@ -35,20 +38,37 @@ const Playlists = () => {
       // }
 
       axios
-        .get(
-          "https://api.spotify.com/v1/playlists/6rqhFgbbKwnb9MLmUQDhG6/tracks/",
-          {
-            headers: {
-              Authorization: "Bearer " + token.access_token,
-            },
-          }
-        )
-        .then((response) => setTracks(response.data));
+        .get("https://api.spotify.com/v1/playlists/" + id + "/", {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setPlaylist(response.data));
     },
-    [token, setTracks]
+    [token, id, setPlaylist]
   );
 
+  useEffect(
+    function () {
+      axios
+        .get("https://api.spotify.com/v1/playlists/" + id + "/tracks", {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setTracks(response.data));
+    },
+    [token, id, setTracks]
+  );
+
+  // var trackItemsArray = tracks.items;
+
+  console.log("playlist", playlist);
+
   console.log("tracks", tracks);
+  // console.log("trackItemsArray", trackItemsArray);
+
+  console.log("itemsArray", tracks.items);
 
   const [songPlaying, setSongPlaying] = useState("");
 
@@ -57,7 +77,7 @@ const Playlists = () => {
       <img
         className="w-40 h-40 rounded-lg"
         src={album.linkImg}
-        alt={album.title}
+        alt={playlist.name}
       />
     );
   });
@@ -77,7 +97,7 @@ const Playlists = () => {
     >
       <SearchHeader />
       <h2 className="text-[48px] ml-10 pt-20 pb-8 font-extrabold text-white">
-        Playlists
+        Playlist
       </h2>
 
       <section className="h-52">
@@ -91,7 +111,7 @@ const Playlists = () => {
         />
       </section>
       <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
-        {FeaturedData[0].title}
+        {playlist.name}
       </h3>
       <section className="overflow-y-scroll h-[17rem]">
         <table>
@@ -99,6 +119,12 @@ const Playlists = () => {
             {FeaturedData[0].tracks.map((item) => (
               <TrackItem item={item} />
             ))}
+            {/* {tracks.item.map((item) => (
+              <>
+                <p>{item.track.name}</p>
+                <TrackItem item={item} />
+              </>
+            ))} */}
           </tbody>
         </table>
         <div className="flex justify-center mt-10 mb-10">

@@ -56,7 +56,7 @@ function App() {
               <Route path="/featured" element={<Featured />} />
               <Route path="/albumDetails" element={<AlbumDetails />} />
               <Route path="/albums" element={<Albums />} />
-              <Route path="/playlists" element={<Playlists />} />
+              <Route path="/playlists/:id" element={<Playlists />} />
               <Route path="/categories" element={<Categories />} />
 
               <Route

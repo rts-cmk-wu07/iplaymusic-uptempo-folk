@@ -39,9 +39,7 @@ const TrackItem = ({ item }) => {
         <p
           onClick={() => setSongPlaying(true)}
           className="pb-1/2 font-bold text-lg dark:text-white"
-        >
-          {item.title}
-        </p>
+        ></p>
         <p
           onClick={() => setSongPlaying(true)}
           className="font-medium dark:text-white text-base"
