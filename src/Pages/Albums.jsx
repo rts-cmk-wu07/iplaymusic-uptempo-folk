@@ -7,8 +7,30 @@ import { IoMdSettings } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import SearchHeader from "../Component/SearchHeader";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import TokenContext from "../Contexts/TokenContext";
+
+
 
 const Albums = () => {
+  var [token] = useContext(TokenContext);
+  var [content, setContent] = useState([]);
+
+  useEffect(
+    function () {
+      axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setContent(response.data.playlists.items));
+    },
+    [token, setContent]
+  );
+
+
+
   const settings = {
     infinite: true,
     speed: 800,
@@ -40,11 +62,10 @@ const Albums = () => {
         </div>
 
         <Slider {...settings} className="albums ">
-          {FeaturedData.map((item) => (
+          {content.map((item) => (
             <div className="card">
               <div className="card-top">
-                <img src={item.linkImg} alt="" />
-                <h2>{item.title}</h2>
+                <img src={item.images[0].url} alt="" />  
               </div>
             </div>
           ))}
