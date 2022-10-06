@@ -37,7 +37,7 @@ const Featured = () => {
     initialSlide: 0,
     responsive: [
       {
-        breakpoint: 390,
+        breakpoint:390,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
