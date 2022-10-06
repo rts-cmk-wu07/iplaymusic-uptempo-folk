@@ -19,12 +19,12 @@ const Albums = () => {
 
   useEffect(
     function () {
-      axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
+      axios.get("https://api.spotify.com/v1/albums/id", {
           headers: {
             Authorization: "Bearer " + token.access_token,
           },
         })
-        .then((response) => setContent(response.data.playlists.items));
+        .then((response) => setContent(response.data.albums.items));
     },
     [token, setContent]
   );
