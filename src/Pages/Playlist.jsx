@@ -110,8 +110,9 @@ const Playlist = () => {
           onSlideChange={callback}
         />
       </section>
+
       <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
-        {playlist.name}
+        {playlist.name ? <span>{playlist.name}</span> : <span>Loading...</span>}
       </h3>
       <section className="overflow-y-scroll h-[17rem]">
         <table>
@@ -121,12 +122,19 @@ const Playlist = () => {
             ))} */}
             {tracks.items?.map((item) => (
               <>
-                <p>{item.track.name}</p>
-                <p>{item.track.external_urls.href}</p>
+                {/* <p>
+                  {item.track.name ? (
+                    <span>{item.track.name}</span>
+                  ) : (
+                    <span>No nome listed</span>
+                  )}
+                </p> */}
+
                 <TrackItem
                   item={item}
                   key={item.id}
                   id={item.id}
+                  // href={item.track.href}
                   // artist={item.artists[0].name}
                   title={item.name}
                   duration={item.duration_ms}
