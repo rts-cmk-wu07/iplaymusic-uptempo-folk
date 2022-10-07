@@ -5,6 +5,7 @@ import Featured from "./Pages/Featured";
 import AlbumDetails from "./Pages/AlbumDetails";
 import Albums from "./Pages/Albums";
 import Playlists from "./Pages/Playlists";
+import Playlist from "./Pages/Playlist";
 import Categories from "./Pages/Categories";
 import Player from "./Pages/Player";
 import GenericArtistGenre from "./Pages/GenericArtistGenre";
@@ -56,7 +57,8 @@ function App() {
               <Route path="/featured" element={<Featured />} />
               <Route path="/albumDetails" element={<AlbumDetails />} />
               <Route path="/albums" element={<Albums />} />
-              <Route path="/playlists/:id" element={<Playlists />} />
+              <Route path="/playlist/:id" element={<Playlist />} />
+              <Route path="/playlists" element={<Playlists />} />
               <Route path="/categories" element={<Categories />} />
 
               <Route
