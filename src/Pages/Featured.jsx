@@ -32,14 +32,14 @@ const Featured = () => {
     verticalSwiping: true,
     infinite: false,
     speed: 700,
-    slidesToShow: 1.95,
-    slidesToScroll: 1.95,
-    initialSlide: 0,
+    slidesToShow: 1.20,
+    slidesToScroll: 1,
+    initialSlide: 1,
     responsive: [
       {
         breakpoint:390,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.20,
           slidesToScroll: 1,
         },
       },
