@@ -4,7 +4,7 @@ import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
 import { CurrentSongContext } from "../Contexts/CurrentSongContext";
 
-const TrackItem = ({ item }) => {
+const TrackItem = ({ item, name }) => {
   const [songPlaying, setSongPlaying] = useState(false);
   const { setCurrentSong } = useContext(CurrentSongContext);
 
@@ -39,17 +39,19 @@ const TrackItem = ({ item }) => {
         <p
           onClick={() => setSongPlaying(true)}
           className="pb-1/2 font-bold text-lg dark:text-white"
-        ></p>
+        >
+          {name}
+        </p>
         <p
           onClick={() => setSongPlaying(true)}
           className="font-medium dark:text-white text-base"
         >
-          {item.artist}
+          {/* {item.artist} */}
         </p>
       </td>
       <td>
         <p className="mr-3 pl-20 font-medium dark:text-white text-base text-right">
-          {item.length}
+          {/* {item.length} */}
         </p>
       </td>
     </tr>
