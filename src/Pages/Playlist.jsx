@@ -8,6 +8,7 @@ import axios from "axios";
 import TokenContext from "../Contexts/TokenContext";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { IoRemove } from "react-icons/io5";
 
 const Playlist = () => {
   /*NB! ___Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
@@ -133,11 +134,12 @@ const Playlist = () => {
                 <TrackItem
                   item={item}
                   key={item.track.id}
-                  id={item.id}
+                  id={item.track.id}
                   // href={item.track.href}
-                  //   artists={}
+                  artists={item.track.artists}
                   name={item.track.name}
-                  duration={item.duration_ms}
+                  duration={item.track.duration_ms}
+                  preview_url={item.track.preview_url}
                 />
               </>
             ))}
