@@ -3,7 +3,6 @@ import wave from "../assets/wave.svg";
 import FeaturedData from "../Component/Data";
 import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
-import { Carousel } from "3d-react-carousal";
 
 const GenericPlaylistAlbum = () => {
   /*NB! Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
@@ -38,16 +37,7 @@ const GenericPlaylistAlbum = () => {
         Album or playlist
       </h2>
 
-      <section className="h-52">
-        <Carousel
-          className="w-full h-52"
-          slides={slides}
-          autoplay={false}
-          arrows={false}
-          interval={2000}
-          onSlideChange={callback}
-        />
-      </section>
+      <section className="h-52"></section>
 
       <section>
         <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
