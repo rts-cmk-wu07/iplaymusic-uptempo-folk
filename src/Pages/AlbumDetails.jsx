@@ -14,7 +14,7 @@ const AlbumDetails = () => {
     { name: "#bluegrass" },
     { name: "#country" },
     { name: "#folk" },
-    { name: "#bossanova'n'soul" },
+    { name: "#bossanova'n'soul " },
   ];
 
   return (
