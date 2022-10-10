@@ -11,11 +11,14 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../Contexts/TokenContext";
 
+import { useNavigate } from "react-router-dom";
 
 
 const Albums = () => {
   var [token] = useContext(TokenContext);
   var [content, setContent] = useState([]);
+  const navigate = useNavigate();
+
 
   useEffect(
     function () {
@@ -64,7 +67,7 @@ const Albums = () => {
         <Slider {...settings} className="albums ">
           {content.map((item) => (
             <div className="card">
-              <div className="card-top">
+              <div className="card-top" onClick={() =>navigate(`/albumDetails`)}>
                 <img src={item.images[0].url} alt="" />  
               </div>
             </div>
