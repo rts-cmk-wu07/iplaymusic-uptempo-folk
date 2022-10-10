@@ -4,19 +4,22 @@ import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
 import { CurrentSongContext } from "../Contexts/CurrentSongContext";
 
-const TrackItem = ({ item, name }) => {
+const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
   const [songPlaying, setSongPlaying] = useState(false);
   const { setCurrentSong } = useContext(CurrentSongContext);
 
+  var minutes = Math.floor(duration / 60000);
+  var seconds = ((duration % 60000) / 1000).toFixed(0);
+
   return (
-    <tr className="my-11">
-      <td className="px-5 py-4">
+    <tr key={key} className="my-11">
+      <td className="pl-4 pr-3 py-4">
         {!songPlaying && (
           <button
             className="p-2 rounded-full w-8 h-8 bg-gradient-to-r from-[#FF1168] to-[#f2bc06]"
             onClick={(event) => {
               setSongPlaying(true);
-              setCurrentSong(item.id /*eller 'item.src'??*/);
+              setCurrentSong(preview_url);
               //pressPlay();
             }}
           >
@@ -47,11 +50,18 @@ const TrackItem = ({ item, name }) => {
           className="font-medium dark:text-white text-base"
         >
           {/* {item.artist} */}
+          {artists?.map((item, index) =>
+            index + 1 === artists.length ? (
+              <span key={index}>{item.name} </span>
+            ) : (
+              <span key={index}>{item.name}, </span>
+            )
+          )}
         </p>
       </td>
       <td>
-        <p className="mr-3 pl-20 font-medium dark:text-white text-base text-right">
-          {/* {item.length} */}
+        <p className="mr-3 pl-16 font-medium dark:text-white text-base text-right">
+          {minutes}:{(seconds < 10 ? "0" : "") + seconds}
         </p>
       </td>
     </tr>
