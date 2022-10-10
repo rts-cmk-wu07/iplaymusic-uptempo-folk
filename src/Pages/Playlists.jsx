@@ -1,7 +1,7 @@
 import FeaturedData from "../Component/Data";
 import wave from "../assets/wave.svg";
 import { useState, useContext, useEffect } from "react";
-//import { Carousel } from "3d-react-carousal";
+
 import SearchHeader from "../Component/SearchHeader";
 import TrackItem from "../Component/TrackItem";
 import axios from "axios";
