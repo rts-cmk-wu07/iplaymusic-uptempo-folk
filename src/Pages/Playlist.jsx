@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Playlist = () => {
-  /*NB! Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
+  /*NB! ___Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
   const [coloredHero, setColoredHero] = useState(true);*/
 
   var [token] = useContext(TokenContext);
