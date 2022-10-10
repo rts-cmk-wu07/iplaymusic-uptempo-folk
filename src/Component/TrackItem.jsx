@@ -7,6 +7,7 @@ import { CurrentSongContext } from "../Contexts/CurrentSongContext";
 const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
   const [songPlaying, setSongPlaying] = useState(false);
   const { setCurrentSong } = useContext(CurrentSongContext);
+  
 
   var minutes = Math.floor(duration / 60000);
   var seconds = ((duration % 60000) / 1000).toFixed(0);
