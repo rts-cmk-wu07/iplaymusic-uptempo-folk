@@ -1,7 +1,7 @@
 import FeaturedData from "../Component/Data";
 import wave from "../assets/wave.svg";
 import { useState, useContext, useEffect } from "react";
-import { Carousel } from "3d-react-carousal";
+
 import SearchHeader from "../Component/SearchHeader";
 import TrackItem from "../Component/TrackItem";
 import axios from "axios";
@@ -101,16 +101,7 @@ const Playlist = () => {
         Playlist
       </h2>
 
-      <section className="h-52">
-        <Carousel
-          className="w-full h-52"
-          slides={slides}
-          autoplay={false}
-          arrows={false}
-          interval={2000}
-          onSlideChange={callback}
-        />
-      </section>
+      <section className="h-52"></section>
 
       <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
         {playlist.name ? <span>{playlist.name}</span> : <span>Loading...</span>}
