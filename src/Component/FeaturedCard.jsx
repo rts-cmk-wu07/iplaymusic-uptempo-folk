@@ -3,7 +3,7 @@ import { Link,useNavigate } from "react-router-dom"
 export default function FeaturedCard({ image, album, genre, id }) {
     const navigate = useNavigate();
 	return (
-		<article className="featuredCard" onClick={() =>navigate(`/playlists/${id}`)} shadow-lg shadow-black>
+		<article className="featuredCard" onClick={() =>navigate(`/playlists/${id}`)}>
 			<div className="featured-card m-auto rounded-md shadow-lg shadow-black">
 				<img src={image} className=" m-auto w-[310px] h-[500px] mt-10 rounded-md shadow-lg" alt=""/>
 			<div>

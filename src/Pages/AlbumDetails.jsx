@@ -3,9 +3,12 @@ import { useState } from "react";
 import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
 import TrackItem from "../Component/TrackItem";
+import { useParams } from "react-router-dom";
+
 
 const AlbumDetails = () => {
   const [songPlaying, setSongPlaying] = useState("");
+  // const { id } = useParams();
 
   const relatedGenres = [
     { name: "#bluegrass" },
@@ -55,7 +58,12 @@ const AlbumDetails = () => {
         <table>
           <tbody>
             {FeaturedData[4].tracks.map((item) => (
-              <TrackItem item={item} />
+              <TrackItem  item={item}
+              key={item.id}
+              id={item.id}
+              // artist={item.artists[0].name}
+              title={item.name}
+              duration={item.duration_ms} />
             ))}
           </tbody>
         </table>{" "}

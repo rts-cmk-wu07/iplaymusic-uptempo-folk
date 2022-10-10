@@ -52,7 +52,7 @@ function App() {
       <CurrentSongProvider>
         <>
           <Routes>
-            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<Layout />}>
               <Route path="/featured" element={<Featured />} />
               <Route path="/albumDetails" element={<AlbumDetails />} />
               <Route path="/albums" element={<Albums />} />

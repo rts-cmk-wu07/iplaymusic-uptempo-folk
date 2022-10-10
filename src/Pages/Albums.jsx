@@ -10,25 +10,58 @@ import SearchHeader from "../Component/SearchHeader";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../Contexts/TokenContext";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
-const Albums = () => {
+
+const Albums = (id) => {
   var [token] = useContext(TokenContext);
   var [content, setContent] = useState([]);
 
+  const navigate = useNavigate();
+
+  // var [album, setAlbum] = useState([]);
+  var [tracks, setTracks] = useState([]);
+  // const { id } = useParams();
+
+
   useEffect(
     function () {
-      axios.get("https://api.spotify.com/v1/albums/id", {
+      axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
           headers: {
             Authorization: "Bearer " + token.access_token,
-          },
+            // "content-type": "application/json",         
+           },
         })
-        .then((response) => setContent(response.data.albums.items));
+        .then((response) => setContent(response.data.playlists.items));
     },
     [token, setContent]
   );
 
+    
+  
+  useEffect(
+    function () {
+      axios
+        .get("https://api.spotify.com/v1/browse/new-releases", {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setTracks(response.data));
+    },
+    [token, id, setTracks]
+  );
+
+// var trackItemsArray = tracks.items;
+
+console.log("content", content);
+
+// console.log("tracks", tracks);
+
+// console.log("itemsArray", tracks.items);
 
 
   const settings = {
@@ -63,9 +96,10 @@ const Albums = () => {
 
         <Slider {...settings} className="albums ">
           {content.map((item) => (
-            <div className="card">
-              <div className="card-top">
-                <img src={item.images[0].url} alt="" />  
+            <div className="card" >
+              <div className="card-top"  onClick={() =>navigate(`/albumDetails`)}>
+                <img src={item.images[0].url} alt="" key={item.id}/> 
+                <p>{item.name}</p> 
               </div>
             </div>
           ))}
@@ -81,8 +115,8 @@ const Albums = () => {
       <div className="flex overflow-y-scroll h-[38vh]">
         <div>
           {FeaturedData.map((item) => (
-            <div className="album">
-              <img src={item.linkImg} alt="" className="albumImg" />
+            <div className="album" onClick={() =>navigate(`/albumDetails`)} >
+              <img src={item.linkImg} alt="" className="albumImg"/>
               <div className="pt-10 pl-3">
                 <h2 className="font-bold dark:text-white">{item.title}</h2>
                 <p className="dark:text-white">{item.category}</p>
