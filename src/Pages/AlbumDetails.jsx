@@ -1,11 +1,54 @@
 import FeaturedData from "../Component/Data";
-import { useState } from "react";
 import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
 import TrackItem from "../Component/TrackItem";
+import { useParams } from "react-router-dom";
+import TokenContext from "../Contexts/TokenContext";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+
+
+
 
 const AlbumDetails = () => {
   const [songPlaying, setSongPlaying] = useState("");
+
+  var [token] = useContext(TokenContext);
+
+  var [album, setAlbum] = useState([]);
+
+  var [tracks, setTracks] = useState([]);
+  const { id } = useParams();
+
+  
+    useEffect(
+      function () {
+    axios
+    .get("https://api.spotify.com/v1/albums/" + id + "/", {
+      headers: {
+        Authorization: "Bearer " + token.access_token,
+      },
+    })
+    .then((response) => setAlbum(response.data));
+  },
+  [token, id, setAlbum]
+  );
+
+  useEffect(
+    function () {
+      axios
+        .get("https://api.spotify.com/v1/albums/" + id + "/tracks", {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setTracks(response.data));
+    },
+    [token, id, setTracks]
+  );
+
 
   const relatedGenres = [
     { name: "#bluegrass" },

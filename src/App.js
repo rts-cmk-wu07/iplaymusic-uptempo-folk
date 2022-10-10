@@ -53,6 +53,8 @@ function App() {
       <CurrentSongProvider>
         <>
           <Routes>
+          {tokenState[0]?.access_token ?
+
             <Route path="/" element={<Layout />}>
               <Route path="/featured" element={<Featured />} />
               <Route path="/albumDetails" element={<AlbumDetails />} />
@@ -70,8 +72,12 @@ function App() {
                 element={<GenericPlaylistAlbum />}
               />
             </Route>
-            <Route path="/login" element={<Login />}></Route>
+						:
+            <>
+            <Route default path="/login" element={<Login />}></Route>
             <Route path="/callback" element={<Callback />}></Route>
+            </>
+          }
           </Routes>
           <Player />
         </>
