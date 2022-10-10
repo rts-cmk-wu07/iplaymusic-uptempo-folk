@@ -17,21 +17,37 @@ import { useNavigate } from "react-router-dom";
 const Albums = () => {
   var [token] = useContext(TokenContext);
   var [content, setContent] = useState([]);
+  var [tracks, setTracks] = useState([]);
   const navigate = useNavigate();
 
 
   useEffect(
     function () {
-      axios.get("https://api.spotify.com/v1/albums/id", {
+      axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
           headers: {
             Authorization: "Bearer " + token.access_token,
-          },
+            // "content-type": "application/json",         
+           },
         })
-        .then((response) => setContent(response.data.albums.items));
+        .then((response) => setContent(response.data.playlists.items));
     },
     [token, setContent]
   );
 
+    
+  
+  useEffect(
+    function () {
+      axios
+        .get("https://api.spotify.com/v1/browse/new-releases", {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setTracks(response.data));
+    },
+    [token, setTracks]
+  );
 
 
   const settings = {
