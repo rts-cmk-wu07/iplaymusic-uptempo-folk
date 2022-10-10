@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Playlist = () => {
-  /*NB! Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
+  /*NB! ___Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
   const [coloredHero, setColoredHero] = useState(true);*/
 
   var [token] = useContext(TokenContext);
@@ -126,17 +126,17 @@ const Playlist = () => {
                   {item.track.name ? (
                     <span>{item.track.name}</span>
                   ) : (
-                    <span>No nome listed</span>
+                    <span>{item.items.track.name}</span>
                   )}
                 </p> */}
 
                 <TrackItem
                   item={item}
-                  key={item.id}
+                  key={item.track.id}
                   id={item.id}
                   // href={item.track.href}
-                  // artist={item.artists[0].name}
-                  title={item.name}
+                  //   artists={}
+                  name={item.track.name}
                   duration={item.duration_ms}
                 />
               </>
