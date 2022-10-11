@@ -15,7 +15,7 @@ import Login from "./Pages/Login";
 import Callback from "./Pages/Callback";
 import TokenContext from "./Contexts/TokenContext";
 import { useState } from "react";
-import CurrentSongProvider from "./Contexts/CurrentSongContext";
+import CurrentSongProvider, { CurrentSongContext } from "./Contexts/CurrentSongContext";
 
 // function App() {
 //   return (
@@ -79,7 +79,10 @@ function App() {
             </>
           }
           </Routes>
+          
           <Player />
+          
+          
         </>
       </CurrentSongProvider>
     </TokenContext.Provider>

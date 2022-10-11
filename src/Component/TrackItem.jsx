@@ -19,7 +19,12 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
             className="p-2 rounded-full w-8 h-8 bg-gradient-to-r from-[#FF1168] to-[#f2bc06]"
             onClick={(event) => {
               setSongPlaying(true);
-              setCurrentSong(preview_url);
+              setCurrentSong({
+                preview_url,
+                artist: artists[0].id,
+                artists,
+                name,
+              });
               //pressPlay();
             }}
           >
@@ -42,7 +47,12 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
         <p
           onClick={() => {
             setSongPlaying(true);
-            setCurrentSong(preview_url);
+            setCurrentSong({
+              preview_url,
+              artist: artists[0].id,
+              artists,
+              name,
+            });
             //pressPlay();
           }}
           className="pb-1/2 font-bold text-lg dark:text-white"
@@ -52,7 +62,12 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
         <p
           onClick={() => {
             setSongPlaying(true);
-            setCurrentSong(preview_url);
+            setCurrentSong({
+              preview_url,
+              artist: artists[0].id,
+              artists,
+              name,
+            });
             //pressPlay();
           }}
           className="font-medium dark:text-white text-base"
