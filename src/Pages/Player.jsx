@@ -56,6 +56,7 @@ const Player = () => {
   const songTitle = "On the Road Again";
 
   console.log("maximized", maximized);
+  console.log("currentsongArtsists", currentSong.artists);
 
   return (
     <>
@@ -72,12 +73,22 @@ const Player = () => {
                     <img
                       className="left-5 w-12 h-12 object-cover rounded-full shadow-[0_0_0_2px_hsla(338,100,60,0.501)]"
                       src={playerFg}
-                      alt={artistName}
+                      // alt={artistName}
                     />
                   </div>
-                  <div className="px-3">
-                    <p className="font-semibold dark:text-white">{songTitle}</p>
-                    <p className="dark:text-white">{artistName}</p>
+                  <div className="px-3 w-52 max-h-14">
+                    <p className="font-semibold dark:text-white max-h-6 overflow-x-hidden">
+                      {currentSong.name}
+                    </p>
+                    <p className="dark:text-white max-h-6 overflow-x-hidden">
+                      {currentSong.artists?.map((item, index) =>
+                        index + 1 === currentSong.artists.length ? (
+                          <span key={index}>{item.name} </span>
+                        ) : (
+                          <span key={index}>{item.name}, </span>
+                        )
+                      )}
+                    </p>
                   </div>{" "}
                 </div>{" "}
                 <div className="pt-1">
@@ -137,13 +148,23 @@ const Player = () => {
               <img
                 className="w-full h-full rounded-full object-cover"
                 src={playerFg}
-                alt=""
+                alt="Artist"
               />
             </div>
-            <div className="absolute text-white justify-self-center left-24 top-[60%] text-center">
+            <div className="absolute text-white justify-self-center left-0 w-screen top-[60%] text-center">
               {" "}
-              <p className="text-xl font-bold">{songTitle}</p>
-              <p className="text-l font-medium">{artistName}</p>
+              <p className="text-xl font-bold justify-self-center w-full px-6">
+                {currentSong.name}
+              </p>
+              <p className="text-l font-medium justify-self-center w-full px-6">
+                {currentSong.artists?.map((item, index) =>
+                  index + 1 === currentSong.artists.length ? (
+                    <span key={index}>{item.name} </span>
+                  ) : (
+                    <span key={index}>{item.name}, </span>
+                  )
+                )}
+              </p>
             </div>
 
             <AudioPlayer

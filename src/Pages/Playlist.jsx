@@ -75,19 +75,19 @@ const Playlist = () => {
 
   const [songPlaying, setSongPlaying] = useState("");
 
-   const slides = FeaturedData.map(function (album) {
-       return (
-        <img
-          className="w-40 h-40 rounded-lg"
-         src={album.linkImg}
-           alt={playlist.name}
-        />
-       );
-     });
+  const slides = FeaturedData.map(function (album) {
+    return (
+      <img
+        className="w-40 h-40 rounded-lg"
+        src={album.linkImg}
+        alt={playlist.name}
+      />
+    );
+  });
 
-     const callback = function (index) {
-       console.log("callback", index);
-     };
+  const callback = function (index) {
+    console.log("callback", index);
+  };
 
   console.log("imagggges", playlist.images);
 
@@ -108,19 +108,19 @@ const Playlist = () => {
       <section className="h-52">
         {/* <CarouselComp images={playlist.images} /> */}
         <Carousel
-        className="w-full h-52"
-        slides={slides}
-        autoplay={false}
-        arrows={false}
-        interval={2000}
-        onSlideChange={callback}
-      />
+          className="w-full h-52"
+          slides={slides}
+          autoplay={false}
+          arrows={false}
+          interval={2000}
+          onSlideChange={callback}
+        />
       </section>
 
       <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
         {playlist.name ? <span>{playlist.name}</span> : <span>Loading...</span>}
       </h3>
-      <section className="overflow-y-scroll h-[17rem]">
+      <section className="overflow-y-scroll h-[20.5rem]">
         <table>
           <tbody>
             {/* {FeaturedData[0].tracks.map((item) => (
