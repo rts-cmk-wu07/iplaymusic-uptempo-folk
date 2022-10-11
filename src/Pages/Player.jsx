@@ -149,7 +149,7 @@ const Player = () => {
             <AudioPlayer
               className="absolute"
               autoPlay
-              src={currentSong}
+              src={currentSong.preview_url}
               onPlay={(e) => {
                 console.log("onPlay");
                 setIsPlaying(true);
