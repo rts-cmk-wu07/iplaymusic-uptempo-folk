@@ -147,6 +147,7 @@ const Player = () => {
 
           <AudioPlayer
             className="absolute"
+            autoPlay
             src={currentSong}
             onPlay={(e) => {
               console.log("onPlay");
