@@ -74,7 +74,7 @@ function App() {
             </Route>
 						:
             <>
-            <Route default path="/login" element={<Login />}></Route>
+            <Route path="/" element={<Login />}></Route>
             <Route path="/callback" element={<Callback />}></Route>
             </>
           }

@@ -4,7 +4,6 @@ import { useContext, useEffect } from "react";
 
 import TokenContext from "../Contexts/TokenContext";
 
-import { navigate } from "@reach/router";
 
 import { useSearchParams } from "react-router-dom";
 
