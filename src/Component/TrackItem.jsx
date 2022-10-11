@@ -7,7 +7,6 @@ import { CurrentSongContext } from "../Contexts/CurrentSongContext";
 const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
   const [songPlaying, setSongPlaying] = useState(false);
   const { setCurrentSong } = useContext(CurrentSongContext);
-  
 
   var minutes = Math.floor(duration / 60000);
   var seconds = ((duration % 60000) / 1000).toFixed(0);
@@ -41,13 +40,21 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
       </td>
       <td>
         <p
-          onClick={() => setSongPlaying(true)}
+          onClick={() => {
+            setSongPlaying(true);
+            setCurrentSong(preview_url);
+            //pressPlay();
+          }}
           className="pb-1/2 font-bold text-lg dark:text-white"
         >
           {name}
         </p>
         <p
-          onClick={() => setSongPlaying(true)}
+          onClick={() => {
+            setSongPlaying(true);
+            setCurrentSong(preview_url);
+            //pressPlay();
+          }}
           className="font-medium dark:text-white text-base"
         >
           {/* {item.artist} */}
