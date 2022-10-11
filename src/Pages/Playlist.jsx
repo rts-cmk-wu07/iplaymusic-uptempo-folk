@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { IoRemove } from "react-icons/io5";
 import CarouselComp from "../Component/CarouselComp";
+import { Carousel } from "3d-react-carousal";
 
 const Playlist = () => {
   /*NB! ___Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
@@ -74,19 +75,19 @@ const Playlist = () => {
 
   const [songPlaying, setSongPlaying] = useState("");
 
-  //   const slides = FeaturedData.map(function (album) {
-  //     return (
-  //       <img
-  //         className="w-40 h-40 rounded-lg"
-  //         src={album.linkImg}
-  //         alt={playlist.name}
-  //       />
-  //     );
-  //   });
+   const slides = FeaturedData.map(function (album) {
+       return (
+        <img
+          className="w-40 h-40 rounded-lg"
+         src={album.linkImg}
+           alt={playlist.name}
+        />
+       );
+     });
 
-  //   const callback = function (index) {
-  //     console.log("callback", index);
-  //   };
+     const callback = function (index) {
+       console.log("callback", index);
+     };
 
   console.log("imagggges", playlist.images);
 
@@ -105,7 +106,15 @@ const Playlist = () => {
       </h2>
 
       <section className="h-52">
-        <CarouselComp images={playlist.images} />
+        {/* <CarouselComp images={playlist.images} /> */}
+        <Carousel
+        className="w-full h-52"
+        slides={slides}
+        autoplay={false}
+        arrows={false}
+        interval={2000}
+        onSlideChange={callback}
+      />
       </section>
 
       <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
