@@ -18,7 +18,7 @@ const Player = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const { currentSong } = useContext(CurrentSongContext);
 
-  //replace 'audioFile' with 'currentSong'
+  
 
   const player = useRef();
 
