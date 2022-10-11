@@ -9,6 +9,9 @@ import TokenContext from "../Contexts/TokenContext";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+import { Carousel } from "3d-react-carousal";
+import CarouselComp from "../Component/CarouselComp";
+
 const Playlists = (props) => {
   /*NB! Hvis vi skal følge designet, skal search-componentet have primaryColor som baggrundsfarve.
   const [coloredHero, setColoredHero] = useState(true);*/
@@ -109,6 +112,8 @@ const Playlists = (props) => {
           interval={2000}
           onSlideChange={callback}
         /> */}
+
+        <CarouselComp images={playlist.images} />
       </section>
       <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
         {playlist.name}
