@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import playerBg from "../assets/player-bgr.jpg";
 import playerFg from "../assets/player-fg.jpg";
 import AudioPlayer from "react-h5-audio-player";
+import axios from "axios";
 
 import "../playerStyle.css";
 import audioFile from "../assets/penguin.mp3";
@@ -11,14 +12,29 @@ import { IoPause } from "react-icons/io5";
 import { IoPlaySharp } from "react-icons/io5";
 import { IoPauseSharp } from "react-icons/io5";
 import { useContext } from "react";
+import TokenContext from "../Contexts/TokenContext";
 import { CurrentSongContext } from "../Contexts/CurrentSongContext";
 
 const Player = () => {
+  var [token] = useContext(TokenContext);
   const [maximized, setMaximized] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const { currentSong } = useContext(CurrentSongContext);
 
-  
+  const [artistData, setArtistData] = useState([]);
+
+  useEffect(
+    function () {
+      axios
+        .get("https://api.spotify.com/v1/artists/" + currentSong.artist, {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setArtistData(response.data));
+    },
+    [token, currentSong, setArtistData]
+  );
 
   const player = useRef();
 
@@ -57,6 +73,7 @@ const Player = () => {
 
   console.log("maximized", maximized);
   console.log("currentsongArtsists", currentSong.artists);
+  console.log("token", token);
 
   return (
     <>
@@ -72,7 +89,7 @@ const Player = () => {
                   <div className="w-12 h-12">
                     <img
                       className="left-5 w-12 h-12 object-cover rounded-full shadow-[0_0_0_2px_hsla(338,100,60,0.501)]"
-                      src={playerFg}
+                      src={artistData.images[0].url}
                       // alt={artistName}
                     />
                   </div>
@@ -126,7 +143,7 @@ const Player = () => {
             }
           >
             <img
-              src={playerBg}
+              src={artistData.images[0].url}
               alt=""
               className="w-full h-screen relative object-cover grayscale-0"
             />
@@ -147,7 +164,7 @@ const Player = () => {
             <div className="absolute align-middle rounded-full w-60 h-60 left-20 top-40 shadow-doubleShadow">
               <img
                 className="w-full h-full rounded-full object-cover"
-                src={playerFg}
+                src={artistData.images[0].url}
                 alt="Artist"
               />
             </div>
