@@ -36,6 +36,8 @@ const Player = () => {
   //   [token, currentSong, setArtistData]
   // );
 
+  // fix it please
+
   const player = useRef();
 
   const pressPlay = () => {
