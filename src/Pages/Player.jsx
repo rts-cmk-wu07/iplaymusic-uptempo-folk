@@ -23,18 +23,18 @@ const Player = () => {
 
   const [artistData, setArtistData] = useState([]);
 
-  useEffect(
-    function () {
-      axios
-        .get("https://api.spotify.com/v1/artists/" + currentSong.artist, {
-          headers: {
-            Authorization: "Bearer " + token.access_token,
-          },
-        })
-        .then((response) => setArtistData(response.data));
-    },
-    [token, currentSong, setArtistData]
-  );
+  // useEffect(
+  //   function () {
+  //     axios
+  //       .get("https://api.spotify.com/v1/artists/" + currentSong.artist, {
+  //         headers: {
+  //           Authorization: "Bearer " + token.access_token,
+  //         },
+  //       })
+  //       .then((response) => setArtistData(response.data));
+  //   },
+  //   [token, currentSong, setArtistData]
+  // );
 
   const player = useRef();
 
