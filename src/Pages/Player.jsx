@@ -23,20 +23,21 @@ const Player = () => {
 
   const [artistData, setArtistData] = useState([]);
 
-  // useEffect(
-  //   function () {
-  //     axios
-  //       .get("https://api.spotify.com/v1/artists/" + currentSong.artist, {
-  //         headers: {
-  //           Authorization: "Bearer " + token.access_token,
-  //         },
-  //       })
-  //       .then((response) => setArtistData(response.data));
-  //   },
-  //   [token, currentSong, setArtistData]
-  // );
+  /*
+  useEffect(
+    function () {
+      axios
+        .get("https://api.spotify.com/v1/artists/" + currentSong.artist, {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setArtistData(response.data));
+    },
+    [token, currentSong, setArtistData]
+  );
 
-  // fix it please
+  */
 
   const player = useRef();
 
@@ -91,7 +92,8 @@ const Player = () => {
                   <div className="w-12 h-12">
                     <img
                       className="left-5 w-12 h-12 object-cover rounded-full shadow-[0_0_0_2px_hsla(338,100,60,0.501)]"
-                      src={artistData.images[0].url}
+                      src={playerFg}
+                      //src={artistData.images[0].url}
                       // alt={artistName}
                     />
                   </div>
@@ -145,7 +147,8 @@ const Player = () => {
             }
           >
             <img
-              src={artistData.images[0].url}
+              src={playerBg}
+              //src={artistData.images[0].url}
               alt=""
               className="w-full h-screen relative object-cover grayscale-0"
             />
@@ -166,7 +169,8 @@ const Player = () => {
             <div className="absolute align-middle rounded-full w-60 h-60 left-20 top-40 shadow-doubleShadow">
               <img
                 className="w-full h-full rounded-full object-cover"
-                src={artistData.images[0].url}
+                src={playerFg}
+                //src={artistData.images[0].url}
                 alt="Artist"
               />
             </div>
