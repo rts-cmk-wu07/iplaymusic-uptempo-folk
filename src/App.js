@@ -56,13 +56,29 @@ function App() {
         <>
           <Routes>
             {tokenState[0]?.access_token ? (
-              <Route path="/" element={<Layout />}>
-                <Route path="/featured" element={<Featured />} />
-                <Route path="/albumDetails" element={<AlbumDetails />} />
-                <Route path="/albums" element={<Albums />} />
-                <Route path="/playlist/:id" element={<Playlist />} />
-                <Route path="/playlists" element={<Playlists />} />
-                <Route path="/categories" element={<Categories />} />
+            <Route path="/" element={<Layout />}>
+              <Route path="/featured" element={<Featured />} />
+              <Route path="/albumDetails/:id" element={<AlbumDetails />} />
+              <Route path="/albums" element={<Albums />} />
+              <Route path="/playlist/:id" element={<Playlist />} />
+              <Route path="/playlists" element={<Playlists />} />
+              <Route path="/categories" element={<Categories />} />
+
+              <Route
+                path="/genericArtistGenre"
+                element={<GenericArtistGenre />}
+              />
+              <Route
+                path="/genericPlaylistAlbum"
+                element={<GenericPlaylistAlbum />}
+              />
+            </Route>
+						:
+            <>
+            <Route path="/" element={<Login />}></Route>
+            <Route path="/callback" element={<Callback />}></Route>
+            </>
+          }
 
                 <Route
                   path="/genericArtistGenre"
@@ -79,6 +95,7 @@ function App() {
                 <Route path="/callback" element={<Callback />}></Route>
               </>
             )}
+
           </Routes>
 
           {tokenState[0]?.access_token && <Player />}
