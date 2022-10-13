@@ -14,14 +14,16 @@ import { IoPauseSharp } from "react-icons/io5";
 import { useContext } from "react";
 import TokenContext from "../Contexts/TokenContext";
 import { CurrentSongContext } from "../Contexts/CurrentSongContext";
+import { isPlayingContext } from "../Contexts/isPlayingContext";
 
 const Player = () => {
   var [token] = useContext(TokenContext);
   const [maximized, setMaximized] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [IsOnModalPlay, setIsOnModalPlay] = useState(false);
   const { currentSong } = useContext(CurrentSongContext);
 
   const [artistData, setArtistData] = useState([]);
+  const { setIsPlaying } = useContext(isPlayingContext);
 
   useEffect(
     function () {
@@ -110,22 +112,22 @@ const Player = () => {
                   </div>{" "}
                 </div>{" "}
                 <div className="pt-1">
-                  {!isPlaying && (
+                  {!IsOnModalPlay && (
                     <button
                       className="pt-2"
                       onClick={(event) => {
-                        setIsPlaying(true);
+                        setIsOnModalPlay(true);
                         pressPlay();
                       }}
                     >
                       <IoPlay className="dark:text-white" size="25" />
                     </button>
                   )}
-                  {isPlaying && (
+                  {IsOnModalPlay && (
                     <button
                       className="pt-2"
                       onClick={(event) => {
-                        setIsPlaying(false);
+                        setIsOnModalPlay(false);
                         pressPause();
                       }}
                     >
@@ -153,7 +155,7 @@ const Player = () => {
               <button onClick={(event) => setMaximized(false)}>
                 <IoChevronBack color="white" size="30" />
               </button>
-              {isPlaying ? (
+              {IsOnModalPlay ? (
                 <h2 className="text-white text-xl px-32 tracking-wider">
                   PLAYING
                 </h2>
@@ -193,7 +195,7 @@ const Player = () => {
               src={currentSong.preview_url}
               onPlay={(e) => {
                 console.log("onPlay");
-                setIsPlaying(true);
+                setIsOnModalPlay(true);
               }}
               ref={player}
               showSkipControls={true}
