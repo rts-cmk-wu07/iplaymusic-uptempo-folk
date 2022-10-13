@@ -8,10 +8,6 @@ import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
-
-
-
 const AlbumDetails = () => {
   const [songPlaying, setSongPlaying] = useState("");
 
@@ -22,19 +18,20 @@ const AlbumDetails = () => {
   var [tracks, setTracks] = useState([]);
   const { id } = useParams();
 
-  
-    useEffect(
-      function () {
-    axios
-    .get("https://api.spotify.com/v1/albums/" + id + "/", {
-      headers: {
-        Authorization: "Bearer " + token.access_token,
-      },
-    })
-    .then((response) => setAlbum(response.data));
-  },
-  [token, id, setAlbum]
+  useEffect(
+    function () {
+      axios
+        .get("https://api.spotify.com/v1/albums/" + id + "/", {
+          headers: {
+            Authorization: "Bearer " + token.access_token,
+          },
+        })
+        .then((response) => setAlbum(response.data));
+    },
+    [token, id, setAlbum]
   );
+
+  console.log("album", album);
 
   useEffect(
     function () {
@@ -49,7 +46,6 @@ const AlbumDetails = () => {
     [token, id, setTracks]
   );
 
-
   const relatedGenres = [
     { name: "#bluegrass" },
     { name: "#country" },
@@ -61,7 +57,7 @@ const AlbumDetails = () => {
     <div className="h-full">
       <section className="relative h-96 z-0">
         <img
-          src={FeaturedData[4].linkImg}
+          src={album.images && album.images[0].url}
           alt={FeaturedData[4].title}
           className="h-full object-cover"
         />
