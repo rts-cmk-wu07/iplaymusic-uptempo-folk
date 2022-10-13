@@ -10,6 +10,8 @@ import Categories from "./Pages/Categories";
 import Player from "./Pages/Player";
 import GenericArtistGenre from "./Pages/GenericArtistGenre";
 import GenericPlaylistAlbum from "./Pages/GenericPlaylistAlbum";
+import Category from "./Pages/Category";
+import Artist from "./Pages/Artist";
 
 import Login from "./Pages/Login";
 import Callback from "./Pages/Callback";
@@ -65,6 +67,8 @@ function App() {
                 <Route path="/playlist/:id" element={<Playlist />} />
                 <Route path="/playlists" element={<Playlists />} />
                 <Route path="/categories" element={<Categories />} />
+                <Route path="/category/:id" element={<Category />} />
+                <Route path="/artist/:id" element={<Artist />} />
 
                 <Route
                   path="/genericArtistGenre"
@@ -75,13 +79,12 @@ function App() {
                   element={<GenericPlaylistAlbum />}
                 />
               </Route>
-            ) : 
+            ) : (
               <>
                 <Route path="/" element={<Login />}></Route>
                 <Route path="/callback" element={<Callback />}></Route>
               </>
-            }
-           
+            )}
           </Routes>
 
           {tokenState[0]?.access_token && <Player />}
