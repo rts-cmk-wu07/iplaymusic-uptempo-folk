@@ -50,13 +50,14 @@ const AlbumDetails = () => {
   console.log("albumTracks", albumTracks);
 
   const relatedGenres = [
-    { name: "#bluegrass" },
-    { name: "#country" },
-    { name: "#folk" },
-    { name: "#bossanova'n'soul" },
+    { name: "bluegrass" },
+    { name: "soul" },
+    { name: "folk" },
   ];
 
   console.log("howmanysongs", album.tracks && album.tracks.items.length);
+
+  console.log("genres", album.genres);
 
   return (
     <div className="h-full">
@@ -64,7 +65,7 @@ const AlbumDetails = () => {
         <img
           src={album.images && album.images[0].url}
           alt={album.name && album.name}
-          className="h-full object-cover"
+          className="h-full w-screen object-cover"
         />
         <div className="-left-3 top-20 absolute">
           {" "}
@@ -81,6 +82,7 @@ const AlbumDetails = () => {
             </>
           </h3>
         </div>
+
         <div className="-left-3 ml-10 absolute block bottom-3">
           <h4 className="text-[15px] font-light  text-white mb-2">
             genres hashtags
@@ -90,7 +92,7 @@ const AlbumDetails = () => {
               <button
                 /*onClick={}*/ className="m-1 h-2 p-2 pb-8 pr-6 rounded-full font-semibold bg-primaryColor text-white"
               >
-                {genre.name}
+                #{genre.name}
               </button>
             ))}
           </div>

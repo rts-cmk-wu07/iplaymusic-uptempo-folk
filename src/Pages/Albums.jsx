@@ -13,28 +13,30 @@ import TokenContext from "../Contexts/TokenContext";
 import NewReleases from "../Component/NewReleases";
 import { useNavigate } from "react-router-dom";
 
-
 const Albums = () => {
   var [token] = useContext(TokenContext);
   var [content, setContent] = useState([]);
   var [tracks, setTracks] = useState([]);
   const navigate = useNavigate();
 
-
   useEffect(
     function () {
-      axios.get("https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc,3PqowBonjatEu0P7g5AIHr", {
-          headers: {
-            Authorization: "Bearer " + token.access_token,
-            // "content-type": "application/json",         
-           },
-        })
+      axios
+        .get(
+          "https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc,3PqowBonjatEu0P7g5AIHr",
+          {
+            headers: {
+              Authorization: "Bearer " + token.access_token,
+              // "content-type": "application/json",
+            },
+          }
+        )
         .then((response) => setContent(response.data.albums));
     },
     [token, setContent]
   );
 
-  console.log("albums", content)
+  console.log("albums", content);
 
   useEffect(
     function () {
@@ -48,7 +50,7 @@ const Albums = () => {
     },
     [token, setTracks]
   );
-console.log("tracks",tracks)
+  console.log("tracks", tracks);
 
   const settings = {
     infinite: true,
@@ -83,8 +85,11 @@ console.log("tracks",tracks)
         <Slider {...settings} className="albums ">
           {content.map((item) => (
             <div className="card">
-              <div className="card-top" onClick={() =>navigate(`/albumDetails/${item.id}`)}>
-                <img src={item.images[0].url} alt="" />  
+              <div
+                className="card-top"
+                onClick={() => navigate(`/albumDetails/${item.id}`)}
+              >
+                <img src={item.images[0].url} alt="" />
               </div>
             </div>
           ))}
@@ -100,7 +105,14 @@ console.log("tracks",tracks)
       <div className="flex overflow-y-scroll h-[38vh]">
         <div>
           {tracks.map((item) => (
-            <NewReleases key={item.id} image={item.images[0].url} album={item.name} artist={item.artists[0].name} id={item.id} songs={item.total_tracks} />
+            <NewReleases
+              key={item.id}
+              image={item.images[0].url}
+              album={item.name}
+              artists={item.artists}
+              id={item.id}
+              songs={item.total_tracks}
+            />
           ))}
         </div>
       </div>
