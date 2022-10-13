@@ -165,7 +165,7 @@ const Artist = () => {
             ))}
         </Slider>
       </section>
-      >
+      
       <section className="pt-0 pb-5">
         <div className="flex justify-between ">
           <h3 className=" text-[20px] ml-8 font-bold dark:text-white">
