@@ -10,7 +10,7 @@ import SearchHeader from "../Component/SearchHeader";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import TokenContext from "../Contexts/TokenContext";
-
+import NewReleases from "../Component/NewReleases";
 import { useNavigate } from "react-router-dom";
 
 
@@ -23,19 +23,17 @@ const Albums = () => {
 
   useEffect(
     function () {
-      axios.get("https://api.spotify.com/v1/browse/featured-playlists", {
+      axios.get("https://api.spotify.com/v1/albums ", {
           headers: {
             Authorization: "Bearer " + token.access_token,
             // "content-type": "application/json",         
            },
         })
-        .then((response) => setContent(response.data.playlists.items));
+        .then((response) => setContent(response.data));
     },
     [token, setContent]
   );
 
-    
-  
   useEffect(
     function () {
       axios
@@ -48,7 +46,7 @@ const Albums = () => {
     },
     [token, setTracks]
   );
-
+console.log("tracks",tracks.albums && tracks.albums.items)
 
   const settings = {
     infinite: true,
@@ -99,17 +97,10 @@ const Albums = () => {
       </div>
       <div className="flex overflow-y-scroll h-[38vh]">
         <div>
-          {FeaturedData.map((item) => (
-            <div className="album">
-              <img src={item.linkImg} alt="" className="albumImg" />
-              <div className="pt-10 pl-3">
-                <h2 className="font-bold dark:text-white">{item.title}</h2>
-                <p className="dark:text-white">{item.category}</p>
-              </div>
-            </div>
+          {tracks.albums&&tracks.albums.items.map((item) => (
+            <NewReleases key={item.id} image={item.images[0].url} album={item.name} artist={item.artists[0].name} id={item.id} songs={item.total_tracks} />
           ))}
         </div>
-        <div className="font-bold dark:text-white pt-8 pl-2">12 songs</div>
       </div>
     </div>
   );
