@@ -3,10 +3,12 @@ import { useState } from "react";
 import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
 import { CurrentSongContext } from "../Contexts/CurrentSongContext";
+import { isPlayingContext } from "../Contexts/isPlayingContext";
 
 const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
   const [songPlaying, setSongPlaying] = useState(false);
   const { setCurrentSong } = useContext(CurrentSongContext);
+  const { setIsPlaying } = useContext(isPlayingContext);
 
   var minutes = Math.floor(duration / 60000);
   var seconds = ((duration % 60000) / 1000).toFixed(0);
@@ -19,6 +21,7 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
             className="p-2 rounded-full w-8 h-8 bg-gradient-to-r from-[#FF1168] to-[#f2bc06]"
             onClick={(event) => {
               setSongPlaying(true);
+              setIsPlaying(id);
               setCurrentSong({
                 preview_url,
                 artist: artists[0].id,
@@ -36,6 +39,7 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
             className="p-2 rounded-full w-8 h-8 bg-gradient-to-r from-[#FF1168] to-[#f2bc06]"
             onClick={(event) => {
               setSongPlaying(false);
+              setIsPlaying(false);
               //pressPause();
             }}
           >
@@ -47,6 +51,7 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
         <p
           onClick={() => {
             setSongPlaying(true);
+            setIsPlaying(id);
             setCurrentSong({
               preview_url,
               artist: artists[0].id,
@@ -62,6 +67,7 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
         <p
           onClick={() => {
             setSongPlaying(true);
+            setIsPlaying(id);
             setCurrentSong({
               preview_url,
               artist: artists[0].id,
