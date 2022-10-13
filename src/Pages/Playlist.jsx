@@ -106,15 +106,13 @@ const Playlist = () => {
       </h2>
 
       <section className="h-52">
-        {/* <CarouselComp images={playlist.images} /> */}
-        <Carousel
-          className="w-full h-52"
-          slides={slides}
-          autoplay={false}
-          arrows={false}
-          interval={2000}
-          onSlideChange={callback}
-        />
+        <div className="w-64 h-64 justify-self-center ml-[18vw]">
+          <img
+            className="object-cover m-auto w-48 h-48 mt-0 rounded-md shadow-lg"
+            src={playlist.images && playlist.images[0].url}
+            alt=""
+          />
+        </div>
       </section>
 
       <h3 className="flex justify-center pt-0 pb-6 text-2xl font-extrabold  dark:text-white">
