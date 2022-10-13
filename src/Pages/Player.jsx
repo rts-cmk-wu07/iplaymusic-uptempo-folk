@@ -15,12 +15,14 @@ import { useContext } from "react";
 import TokenContext from "../Contexts/TokenContext";
 import { CurrentSongContext } from "../Contexts/CurrentSongContext";
 import { isPlayingContext } from "../Contexts/isPlayingContext";
+import { useNavigate } from "react-router-dom";
 
 const Player = () => {
   var [token] = useContext(TokenContext);
   const [maximized, setMaximized] = useState(false);
   const [IsOnModalPlay, setIsOnModalPlay] = useState(false);
   const { currentSong } = useContext(CurrentSongContext);
+  const navigate = useNavigate();
 
   const [artistData, setArtistData] = useState([]);
   const { setIsPlaying } = useContext(isPlayingContext);
@@ -181,9 +183,25 @@ const Player = () => {
               <p className="text-l font-medium justify-self-center w-full px-6">
                 {currentSong.artists?.map((item, index) =>
                   index + 1 === currentSong.artists.length ? (
-                    <span key={index}>{item.name} </span>
+                    <span
+                      key={index}
+                      onClick={() => {
+                        navigate(`/artist/${item.id}`);
+                        setMaximized(false);
+                      }}
+                    >
+                      {item.name}{" "}
+                    </span>
                   ) : (
-                    <span key={index}>{item.name}, </span>
+                    <span
+                      key={index}
+                      onClick={() => {
+                        navigate(`/artist/${item.id}`);
+                        setMaximized(false);
+                      }}
+                    >
+                      {item.name},{" "}
+                    </span>
                   )
                 )}
               </p>

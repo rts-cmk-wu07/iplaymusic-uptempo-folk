@@ -5,7 +5,7 @@ import TrackItem from "../Component/TrackItem";
 import { useParams } from "react-router-dom";
 import TokenContext from "../Contexts/TokenContext";
 import { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 const AlbumDetails = () => {
@@ -61,7 +61,7 @@ const AlbumDetails = () => {
 
   return (
     <div className="h-full">
-      <section className="relative h-96 z-0">
+      <section className="relative h-72 z-0">
         <img
           src={album.images && album.images[0].url}
           alt={album.name && album.name}
@@ -83,27 +83,27 @@ const AlbumDetails = () => {
           </h3>
         </div>
 
-        <div className="-left-3 ml-10 absolute block bottom-3">
+        {/* <div className="-left-3 ml-10 absolute block bottom-3">
           <h4 className="text-[15px] font-light  text-white mb-2">
             genres hashtags
           </h4>
           <div className="flex-wrap">
             {relatedGenres.map((genre) => (
               <button
-                /*onClick={}*/ className="m-1 h-2 p-2 pb-8 pr-6 rounded-full font-semibold bg-primaryColor text-white"
+                onClick={} className="m-1 h-2 p-2 pb-8 pr-6 rounded-full font-semibold bg-primaryColor text-white"
               >
                 #{genre.name}
               </button>
             ))}
           </div>
-        </div>
+        </div> */}
       </section>
 
       <h3 className="text-[20px] ml-10 mt-8 mb-2 font-extrabold text-black dark:text-white">
         All songs
       </h3>
 
-      <section className="overflow-y-scroll h-[35vh] pb-16">
+      <section className="overflow-y-scroll h-[48.7vh] pb-16">
         <table>
           <tbody>
             {albumTracks.items &&

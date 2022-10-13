@@ -4,11 +4,13 @@ import { IoPlay } from "react-icons/io5";
 import { IoPause } from "react-icons/io5";
 import { CurrentSongContext } from "../Contexts/CurrentSongContext";
 import { isPlayingContext } from "../Contexts/isPlayingContext";
+import { useNavigate } from "react-router-dom";
 
 const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
   const [songPlaying, setSongPlaying] = useState(false);
   const { setCurrentSong } = useContext(CurrentSongContext);
   const { setIsPlaying } = useContext(isPlayingContext);
+  const navigate = useNavigate();
 
   var minutes = Math.floor(duration / 60000);
   var seconds = ((duration % 60000) / 1000).toFixed(0);
@@ -64,26 +66,17 @@ const TrackItem = ({ item, name, key, id, artists, duration, preview_url }) => {
         >
           {name}
         </p>
-        <p
-          onClick={() => {
-            setSongPlaying(true);
-            setIsPlaying(id);
-            setCurrentSong({
-              preview_url,
-              artist: artists[0].id,
-              artists,
-              name,
-            });
-            //pressPlay();
-          }}
-          className="font-medium dark:text-white text-base"
-        >
+        <p className="font-medium dark:text-white text-base">
           {/* {item.artist} */}
           {artists?.map((item, index) =>
             index + 1 === artists.length ? (
-              <span key={index}>{item.name} </span>
+              <span key={index} onClick={() => navigate(`/artist/${item.id}`)}>
+                {item.name}{" "}
+              </span>
             ) : (
-              <span key={index}>{item.name}, </span>
+              <span key={index} onClick={() => navigate(`/artist/${item.id}`)}>
+                {item.name},{" "}
+              </span>
             )
           )}
         </p>
