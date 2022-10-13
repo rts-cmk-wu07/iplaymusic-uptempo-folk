@@ -80,22 +80,6 @@ function App() {
             </>
           }
 
-                <Route
-                  path="/genericArtistGenre"
-                  element={<GenericArtistGenre />}
-                />
-                <Route
-                  path="/genericPlaylistAlbum"
-                  element={<GenericPlaylistAlbum />}
-                />
-              
-            ) : (
-              <>
-                <Route path="/" element={<Login />}></Route>
-                <Route path="/callback" element={<Callback />}></Route>
-              </>
-            )
-
           </Routes>
 
           {tokenState[0]?.access_token && <Player />}
