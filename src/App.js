@@ -73,7 +73,7 @@ function App() {
                 element={<GenericPlaylistAlbum />}
               />
             </Route>
-						:
+            ):
             <>
             <Route path="/" element={<Login />}></Route>
             <Route path="/callback" element={<Callback />}></Route>
@@ -88,13 +88,13 @@ function App() {
                   path="/genericPlaylistAlbum"
                   element={<GenericPlaylistAlbum />}
                 />
-              </Route>
+              
             ) : (
               <>
                 <Route path="/" element={<Login />}></Route>
                 <Route path="/callback" element={<Callback />}></Route>
               </>
-            )}
+            )
 
           </Routes>
 
