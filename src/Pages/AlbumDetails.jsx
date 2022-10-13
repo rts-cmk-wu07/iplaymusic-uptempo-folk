@@ -21,7 +21,9 @@ const AlbumDetails = () => {
   useEffect(
     function () {
       axios
-        .get("https://api.spotify.com/v1/albums/" + id + "/", {
+
+        .get("https://api.spotify.com/v1/albums/" + id, {
+
           headers: {
             Authorization: "Bearer " + token.access_token,
           },
