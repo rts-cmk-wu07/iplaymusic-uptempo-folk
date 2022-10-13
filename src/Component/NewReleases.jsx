@@ -8,12 +8,12 @@ export default function NewReleases({ image, album, artist, id, songs }) {
 
       <img src={image} className="albumImg" />
       
-      <div className="pt-10 pl-3">
+      <div className="pt-10 pl-2">
         <h2 className="font-bold dark:text-white">{album}</h2>
         <p className="dark:text-white">{artist}</p>
       </div>
 
-      <div className="font-bold dark:text-white pt-8 pl-2">{songs}</div>
+      <div className="font-bold dark:text-white pt-8 pl-3">{songs} songs</div>
     </article>
   );
 }
