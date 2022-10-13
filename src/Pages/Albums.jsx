@@ -23,16 +23,18 @@ const Albums = () => {
 
   useEffect(
     function () {
-      axios.get("https://api.spotify.com/v1/albums ", {
+      axios.get("https://api.spotify.com/v1/albums?ids=382ObEPsp2rxGrnsizN5TX,1A2GTWGtFfWp7KSQTwWOyo,2noRn2Aes5aoNVsU6iWThc,3PqowBonjatEu0P7g5AIHr", {
           headers: {
             Authorization: "Bearer " + token.access_token,
             // "content-type": "application/json",         
            },
         })
-        .then((response) => setContent(response.data));
+        .then((response) => setContent(response.data.albums));
     },
     [token, setContent]
   );
+
+  console.log("albums", content)
 
   useEffect(
     function () {
@@ -42,11 +44,11 @@ const Albums = () => {
             Authorization: "Bearer " + token.access_token,
           },
         })
-        .then((response) => setTracks(response.data));
+        .then((response) => setTracks(response.data.albums.items));
     },
     [token, setTracks]
   );
-console.log("tracks",tracks.albums && tracks.albums.items)
+console.log("tracks",tracks)
 
   const settings = {
     infinite: true,
@@ -81,7 +83,7 @@ console.log("tracks",tracks.albums && tracks.albums.items)
         <Slider {...settings} className="albums ">
           {content.map((item) => (
             <div className="card">
-              <div className="card-top" onClick={() =>navigate(`/albumDetails`)}>
+              <div className="card-top" onClick={() =>navigate(`/albumDetails/${item.id}`)}>
                 <img src={item.images[0].url} alt="" />  
               </div>
             </div>
@@ -97,7 +99,7 @@ console.log("tracks",tracks.albums && tracks.albums.items)
       </div>
       <div className="flex overflow-y-scroll h-[38vh]">
         <div>
-          {tracks.albums&&tracks.albums.items.map((item) => (
+          {tracks.map((item) => (
             <NewReleases key={item.id} image={item.images[0].url} album={item.name} artist={item.artists[0].name} id={item.id} songs={item.total_tracks} />
           ))}
         </div>

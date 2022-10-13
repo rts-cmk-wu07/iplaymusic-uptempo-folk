@@ -13,7 +13,7 @@ export default function NewReleases({ image, album, artist, id, songs }) {
         <p className="dark:text-white">{artist}</p>
       </div>
 
-      <div className="font-bold dark:text-white pt-8 pl-3">{songs} songs</div>
+      <div className="font-bold dark:text-white pt-8 pl-3">{songs} song(s)</div>
     </article>
   );
 }
