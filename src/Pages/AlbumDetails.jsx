@@ -21,7 +21,9 @@ const AlbumDetails = () => {
   useEffect(
     function () {
       axios
+
         .get("https://api.spotify.com/v1/albums/" + id, {
+
           headers: {
             Authorization: "Bearer " + token.access_token,
           },
@@ -57,7 +59,7 @@ const AlbumDetails = () => {
     <div className="h-full">
       <section className="relative h-96 z-0">
         <img
-          src={FeaturedData[4].linkImg}
+          src={album.images && album.images[0].url}
           alt={FeaturedData[4].title}
           className="h-full object-cover"
         />
