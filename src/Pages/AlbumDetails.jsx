@@ -15,7 +15,7 @@ const AlbumDetails = () => {
 
   var [album, setAlbum] = useState([]);
 
-  var [tracks, setTracks] = useState([]);
+  var [albumTracks, setAlbumTracks] = useState([]);
   const { id } = useParams();
 
   useEffect(
@@ -23,7 +23,6 @@ const AlbumDetails = () => {
       axios
 
         .get("https://api.spotify.com/v1/albums/" + id, {
-
           headers: {
             Authorization: "Bearer " + token.access_token,
           },
@@ -43,10 +42,12 @@ const AlbumDetails = () => {
             Authorization: "Bearer " + token.access_token,
           },
         })
-        .then((response) => setTracks(response.data));
+        .then((response) => setAlbumTracks(response.data));
     },
-    [token, id, setTracks]
+    [token, id, setAlbumTracks]
   );
+
+  console.log("albumTracks", albumTracks);
 
   const relatedGenres = [
     { name: "#bluegrass" },
@@ -55,21 +56,29 @@ const AlbumDetails = () => {
     { name: "#bossanova'n'soul" },
   ];
 
+  console.log("howmanysongs", album.tracks && album.tracks.items.length);
+
   return (
     <div className="h-full">
       <section className="relative h-96 z-0">
         <img
           src={album.images && album.images[0].url}
-          alt={FeaturedData[4].title}
+          alt={album.name && album.name}
           className="h-full object-cover"
         />
         <div className="-left-3 top-20 absolute">
           {" "}
-          <h2 className="text-[48px] ml-10  leading-tight font-extrabold z-20 text-white ">
-            {FeaturedData[4].title}
+          <h2 className="text-[36px] ml-10  leading-tight font-extrabold z-20 text-white ">
+            {album.name && album.name}
           </h2>
           <h3 className="text-[20px] ml-10 mt-2 leading-tight font-extrabold z-20 text-white absolute">
-            {FeaturedData[4].tracks.length} songs
+            <>
+              {album.album_type === "single" ? (
+                <span>Single</span>
+              ) : (
+                <span>{album.tracks?.items?.length} songs</span>
+              )}
+            </>
           </h3>
         </div>
         <div className="-left-3 ml-10 absolute block bottom-3">
@@ -95,9 +104,19 @@ const AlbumDetails = () => {
       <section className="overflow-y-scroll h-[35vh] pb-16">
         <table>
           <tbody>
-            {FeaturedData[4].tracks.map((item) => (
-              <TrackItem item={item} />
-            ))}
+            {albumTracks.items &&
+              albumTracks.items.map((item) => (
+                <TrackItem
+                  item={item}
+                  key={item.id}
+                  id={item.id}
+                  href={item.href}
+                  artists={item.artists}
+                  name={item.name}
+                  duration={item.duration_ms}
+                  preview_url={item.preview_url}
+                />
+              ))}
           </tbody>
         </table>{" "}
       </section>
