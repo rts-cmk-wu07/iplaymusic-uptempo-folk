@@ -1,42 +1,70 @@
-# iPlayMusic !
+# Getting Started with Create React App
 
-Opgaven går ud på at opsætte et website der primært er mobiltvenligt, og er drevet af en simpel datastruktur.
-Opgaven er tiltænkt som en **gruppeopgave** (maks. 3 per gruppe).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
-![alt text](https://github.com/rts-cmk-opgaver/iPlayMusic/blob/master/iplaymusic.png "iPlayMusic hero")
+In the project directory, you can run:
 
-# Del 1 - Layout
-Fokus er at omsætte designet til en funktionel ```React applikation```, ud fra det ud har lært ind til videre. Designet skal følges så tæt som muligt, og fungere på kryds og tværs af flere mobil-skærmstørrelser. Det skal være muligt at skifte mellem lyst og mørkt tema men det er **ikke** et krav at adressebaren er skjult som i en native app.
+### `npm start`
 
-Der er elementer på hjemmesiden som går igen på flere af siderne, dem skal du trække ud i individuelle ```react komponenter``` og inkludere dem efter behov. Udfordringen ligger i at splitte designet op i fornuftige og logiske dele, samt at gennemskue hvilke elementer der gentages på flere sider. Det vil også være ok at oprette templates for enkeltstående elementer.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Views som skal produceres: 
-*Navnene herunder: featured, albums etc. kan du bruge til at finde det rigtige view i Adobe XD filen. Er du itvivl så spørg!*
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-1. Featured (index) - *Præsenter featured albums. **OBS:** Dette view skal senere integrere lazyload*
-2. Albums - *Præsentere featured albums og new releases(albums)*
-3. Album Details - *liste traks for et valgt album*
-4. Categories - *liste alle kategorier*
-5. Playlists - *listes tracks fra en valgt playliste*
-6. Player - *"Afspil" et valgt track*
+### `npm test`
 
-Tænk meget nøje over hvordan navigationen skal foregå. Skal afspilleren for eksempel være et selvstændigt view, eller skal det være et overlay, der kan ses fra alle views, så afspilning ikke bliver afbrudt, når man navigerer rundt i app-en?
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Navigation:
-Fra venstre: Albums, playlists, featured, farve tema, categories(find evt. et mere passende ikon). 
-Afspilleren og album details er dybe links fra henholdsvis albums og playlists/album.  
-![alt text](https://github.com/rts-cmk-wuhf02/iPlayMusic/blob/master/navigation.png "navigation")
+### `npm run build`
 
-### Font, farve og ikoner:
-**Se styleguide:** https://github.com/rts-cmk-wuhf02/iPlayMusic/blob/master/styleguide.png 
-**OBS:** Ikonerne er fra ionic frameworket. De kan importeres igennem ```react-icons```` komponentet, eller hvordan du nu måtte foretrække.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### Arbejdsgang og organisering
-Din gruppe skal planlægge arbejdet nøje og tracke jeres fremskridt. Det betyder, at I skal vælge et værktøj og en arbejdsgang, som kan hjælpe jer med at holde styr på arbejdsprocesserne - fx Scrum.
-      
-### Hvis du har ekstra tid
-Hvis du har ekstra tid i slutningen af ugen, kan du tilføje splash-skærmen og walk-through delen. 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-# Tidsramme
-Der er afsat 1 arbejds uge til layout-delen, dvs aflevering på fredag kl 13.30 (den sidste commit til github inden fredag kl 13.30, bliver afleveringen).
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
